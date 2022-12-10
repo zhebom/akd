@@ -1,3 +1,10 @@
+
+
+
+<!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="dist/logo/ups.png" alt="ups" height="60" width="60">
+        </div>
  <!-- Navbar -->
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -42,7 +49,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="<?= base_url(); ?>" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AKD FEB UPS</span>
 
@@ -64,17 +71,20 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <!-- Pendidikan & Pengajaran -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item <?php if($mainMenu == 'Pendidikan'){echo "menu-open";}?>
+           ">
+           
+            <a href="#" class="nav-link <?php if($mainMenu == 'Pendidikan'){echo "active";}?>">
               
               <p>
               Pendidikan & Pengajaran
+              
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview ">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="<?= base_url('pendidikan/rekognisi');?>" class="nav-link  <?php if($parentMenu == 'rekognisiPendidikan'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rekognisi</p>
                 </a>
@@ -84,8 +94,8 @@
           </li>
 
             <!-- Penelitian -->
-          <li class="nav-item">
-            <a href="#" class="nav-link ">
+          <li class="nav-item <?php if($mainMenu == 'Penelitian'){echo "menu-open";}?>">
+            <a href="#" class="nav-link <?php if($mainMenu == 'Penelitian'){echo "active";}?> ">
             
               <p>
                 Penelitian
@@ -93,20 +103,23 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+              <li class="nav-item ">
+                <a href="<?= base_url('penelitian/reportPenelitian');?>
+                " class="nav-link <?php if($parentMenu == 'reportPenelitian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Penelitian</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="<?= base_url('penelitian/reportJurnal');?>
+                " class="nav-link <?php if($parentMenu == 'reportJurnalPenelitian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jurnal</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="<?= base_url('penelitian/rekognisi');?>
+                " class="nav-link <?php if($parentMenu == 'rekognisiPenelitian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rekognisi</p>
                 </a>
@@ -114,8 +127,8 @@
             </ul>
           </li>
            <!-- Pengabdian -->
-           <li class="nav-item">
-            <a href="#" class="nav-link ">
+           <li class="nav-item <?php if($mainMenu == 'Pengabdian'){echo "menu-open";}?>">
+            <a href="#" class="nav-link <?php if($mainMenu == 'Pengabdian'){echo "active";}?> ">
             
               <p>
                 Pengabdian kepada Masyarakat
@@ -123,20 +136,23 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+              <li class="nav-item ">
+                <a href="<?= base_url('pengabdian/reportPengabdian');?>
+                " class="nav-link <?php if($parentMenu == 'reportPengabdian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Pengabdian</p>
+                  <p>Laporan pengabdian</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="<?= base_url('pengabdian/reportJurnalPengabdian');?>
+                " class="nav-link <?php if($parentMenu == 'reportJurnalPengabdian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jurnal</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="<?= base_url('pengabdian/rekognisi');?>
+                " class="nav-link <?php if($parentMenu == 'rekognisiPengabdian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rekognisi</p>
                 </a>
@@ -145,8 +161,8 @@
           </li>
 
            <!-- GOOGLE SCHOLAR -->
-           <li class="nav-item">
-            <a href="#" class="nav-link ">
+           <li class="nav-item <?php if($mainMenu == 'GS'){echo "menu-open";}?>">
+            <a href="#" class="nav-link <?php if($mainMenu == 'GS'){echo "active";}?> ">
             
               <p>
                 Google Scholar
@@ -155,7 +171,8 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="<?= base_url('gs/reportSitasi');?>
+                " class="nav-link  <?php if($parentMenu == 'reportSitasi'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Sitasi Dosen</p>
                 </a>
@@ -176,4 +193,25 @@
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
+ 
   </aside>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Aktifitas Kegiatan Dosen</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+              <li class="breadcrumb-item active"><?= esc($title); ?></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->

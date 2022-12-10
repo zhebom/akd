@@ -36,6 +36,15 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/pendidikan/rekognisi', 'Pendidikan::rekognisi');
+$routes->get('/penelitian/rekognisi', 'Penelitian::rekognisi');
+$routes->get('/penelitian/reportPenelitian', 'Penelitian::reportPenelitian');
+$routes->get('/penelitian/reportJurnal', 'Penelitian::reportJurnal');
+$routes->get('/pengabdian/rekognisi', 'Pengabdian::rekognisi');
+$routes->get('/pengabdian/reportPengabdian', 'Pengabdian::reportPengabdian');
+$routes->get('/pengabdian/reportJurnalPengabdian', 'Pengabdian::reportJurnal');
+$routes->get('/gs/reportSitasi', 'Sitasi::index');
+
 
 /*
  * --------------------------------------------------------------------

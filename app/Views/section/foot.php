@@ -1,3 +1,6 @@
+
+ </div>
+  <!-- /.content-wrapper -->
 <footer class="main-footer">
     <strong>Copyright &copy; Fakultas Ekonomi & Bisnis Universitas Pancasakti Tegal</strong>
     
@@ -42,6 +45,6 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- BS-Stepper -->
-<script src="../../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<script src="plugins/bs-stepper/js/bs-stepper.min.js"></script>
 </body>
 </html>
