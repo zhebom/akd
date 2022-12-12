@@ -44,6 +44,12 @@ $routes->get('/pengabdian/rekognisi', 'Pengabdian::rekognisi');
 $routes->get('/pengabdian/reportPengabdian', 'Pengabdian::reportPengabdian');
 $routes->get('/pengabdian/reportJurnalPengabdian', 'Pengabdian::reportJurnal');
 $routes->get('/gs/reportSitasi', 'Sitasi::index');
+$routes->get('/login', 'Auth::login');
+$routes->get('/register', 'Auth::register');
+$routes->get('/dosen/riwayatPendidikanDosen', 'Dosen::pendidikan');
+$routes->get('/dosen/riwayatJafaDosen', 'Dosen::jafa');
+$routes->get('/dosen/riwayatProfesiDosen', 'Dosen::profesi');
+$routes->get('/dosen/riwayatBnspDosen', 'Dosen::bnsp');
 
 
 /*

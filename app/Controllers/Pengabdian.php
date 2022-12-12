@@ -16,7 +16,7 @@ class Pengabdian extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('pengabdian/rekognisi',$data);
-        echo view('section/foot'),$data;
+        echo view('section/foot',$data);
     }
 
     public function reportpengabdian()
@@ -30,7 +30,7 @@ class Pengabdian extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('pengabdian/reportpengabdian',$data);
-        echo view('section/foot'),$data;
+        echo view('section/foot',$data);
     }
 
     public function reportJurnal()
@@ -46,6 +46,6 @@ class Pengabdian extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('pengabdian/reportJurnal',$data);
-        echo view('section/foot'),$data;
+        echo view('section/foot',$data);
     }
 }

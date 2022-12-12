@@ -70,57 +70,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
-          <!-- Profil Dosen-->
-          <li class="nav-item <?php if($mainMenu == 'Dosen'){echo "menu-open";}?>">
-            <a href="#" class="nav-link <?php if($mainMenu == 'Dosen'){echo "active";}?> ">
-            
-              <p>
-                Profil Dosen
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item ">
-                <a href="<?= base_url('dosen/riwayatPendidikanDosen');?>
-                " class="nav-link <?php if($parentMenu == 'riwayatPendidikanDosen'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Riwayat Pendidikan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('dosen/riwayatJafaDosen');?>
-                " class="nav-link <?php if($parentMenu == 'riwayatJafaDosen'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Riwayat JAFA</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('dosen/riwayatProfesiDosen');?>
-                " class="nav-link <?php if($parentMenu == 'riwayatProfesiDosen'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sertifikat Profesi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('dosen/riwayatBnspDosen');?>
-                " class="nav-link <?php if($parentMenu == 'riwayatBnspDosen'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sertifikat BNSP</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-
-         
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <a href="#" class="d-block">Tridharma Dosen</a>
-            </div>
-          
-
-
-
           <!-- Pendidikan & Pengajaran -->
           <li class="nav-item <?php if($mainMenu == 'Pendidikan'){echo "menu-open";}?>
            ">

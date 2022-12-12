@@ -15,7 +15,7 @@ class Penelitian extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('penelitian/rekognisi',$data);
-        echo view('section/foot'),$data;
+        echo view('section/foot',$data);
     }
 
     public function reportPenelitian()
@@ -29,7 +29,7 @@ class Penelitian extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('penelitian/reportPenelitian',$data);
-        echo view('section/foot'),$data;
+        echo view('section/foot',$data);
     }
 
     public function reportJurnal()
@@ -45,6 +45,6 @@ class Penelitian extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('penelitian/reportJurnal',$data);
-        echo view('section/foot'),$data;
+        echo view('section/foot',$data);
     }
 }

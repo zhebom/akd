@@ -15,6 +15,6 @@ class Pendidikan extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('pendidikan/rekognisi',$data);
-        echo view('section/foot'),$data;
+        echo view('section/foot',$data);
     }
 }
