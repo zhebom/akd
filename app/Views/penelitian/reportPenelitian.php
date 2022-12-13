@@ -10,12 +10,16 @@
               <form>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Rekognisi Sebagai</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Rekognisi">
+                    <label for="exampleInputEmail1">Judul Penelitian</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Judul Penelitian">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Diundang oleh</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Diundang oleh">
+                    <label for="exampleInputEmail1">Sumber Dana</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Didanai Oleh">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Total Dana Penelitian</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Total Dana Penelitian">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Tahun</label>
@@ -25,7 +29,7 @@
                   <div class="form-group">
                     <!-- select -->
                     
-                        <label>Skala Rekognisi</label>
+                        <label>Skala</label>
                         <select class="form-control">
                           <option>Lokal</option>
                           <option>Nasional</option>
@@ -35,7 +39,7 @@
                      
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Upload Bukti dalam 1 File PDF</label>
+                    <label for="exampleInputFile">Upload Laporan Penelitian dalam 1 File PDF</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile">

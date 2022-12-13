@@ -37,6 +37,25 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/pendidikan/rekognisi', 'Pendidikan::rekognisi');
+$routes->get('/pendidikan/rekognisiPendidikanDosen', 'Pendidikan::listRekognisiPendidikan');
+$routes->get('/penelitian/rekognisi', 'Penelitian::rekognisi');
+$routes->get('/penelitian/reportPenelitian', 'Penelitian::reportPenelitian');
+$routes->get('/penelitian/reportJurnal', 'Penelitian::reportJurnal');
+$routes->get('/pengabdian/rekognisi', 'Pengabdian::rekognisi');
+$routes->get('/pengabdian/reportPengabdian', 'Pengabdian::reportPengabdian');
+$routes->get('/pengabdian/reportJurnalPengabdian', 'Pengabdian::reportJurnal');
+$routes->get('/gs/reportSitasi', 'Sitasi::index');
+$routes->get('/login', 'Auth::login');
+$routes->get('/register', 'Auth::register');
+$routes->get('/dosen/riwayatPendidikanDosen', 'Dosen::pendidikan');
+$routes->get('/dosen/riwayatJafaDosen', 'Dosen::jafa');
+$routes->get('/dosen/riwayatProfesiDosen', 'Dosen::profesi');
+$routes->get('/dosen/riwayatBnspDosen', 'Dosen::bnsp');
+$routes->get('/dosen/listBnspDosen', 'Dosen::listBnsp');
+$routes->get('/dosen/listProfesiDosen', 'Dosen::listProfesi');
+$routes->get('/dosen/listJafaDosen', 'Dosen::listJafa');
+$routes->get('/dosen/listPendidikanDosen', 'Dosen::listPendidikan');
+
 
 /*
  * --------------------------------------------------------------------

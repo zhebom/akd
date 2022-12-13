@@ -10,12 +10,20 @@
               <form>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Rekognisi Sebagai</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Rekognisi">
+                    <label for="exampleInputEmail1">Judul Luaran Pengabdian</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Judul Luaran Pengabdian">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Diundang oleh</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Diundang oleh">
+                    <label for="exampleInputEmail1">Link Luaran Pengabdian</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Link Luaran Pengabdian">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Sumber Dana</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Didanai Oleh">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Total Dana </label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Total Dana Pengabdian">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Tahun</label>
@@ -25,17 +33,20 @@
                   <div class="form-group">
                     <!-- select -->
                     
-                        <label>Skala Rekognisi</label>
+                        <label>Skala</label>
                         <select class="form-control">
-                          <option>Lokal</option>
-                          <option>Nasional</option>
-                          <option>Internasional</option>
+                          <option>Jurnal Nasional</option>
+                          <option>Jurnal Nasional Terakreditasi</option>
+                          <option>Jurnal Internasional</option>
+                          <option>Jurnal Internasional Bereputasi</option>
+                          <option>Seminar Nasional</option>
+                          <option>Seminar Internasional</option>
                         
                         </select>
                      
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Upload Bukti dalam 1 File PDF</label>
+                    <label for="exampleInputFile">Upload Luaran dalam 1 File PDF</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile">
