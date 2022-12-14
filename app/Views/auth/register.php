@@ -24,9 +24,14 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg"></p>
-    <?= $validasi->listErrors(); ?>
-      <form action="<?= base_url('addDosen'); ?>" method="post">
+      <p class="login-box-msg">  
+        <strong><?= session()->getFlashdata('msg') ?></strong>
+        <?= $validasi->listErrors(); ?>
+      </p>
+      
+    
+        
+     <form action="<?= base_url('addDosen'); ?>" method="post">
         <div class="input-group mb-3">
           <input type="text" id="name" name="name" class="form-control" placeholder="Full name" autofocus value="<?= old('name'); ?>">
           <div class="input-group-append">
@@ -60,16 +65,9 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-              <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
-              </label>
-            </div>
-          </div>
+         
           <!-- /.col -->
-          <div class="col-4">
+          <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->

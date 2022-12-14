@@ -57,6 +57,8 @@ $routes->get('/gs/reportSitasi', 'Sitasi::index');
 $routes->get('/login', 'Auth::login');
 $routes->get('/register', 'Auth::register');
 $routes->post('/addDosen', 'Auth::addDosen');
+$routes->post('/ceklogin', 'Auth::ceklogin');
+$routes->get('/logout', 'Auth::logout');
 $routes->get('/dosen/riwayatPendidikanDosen', 'Dosen::pendidikan');
 $routes->get('/dosen/riwayatJafaDosen', 'Dosen::jafa');
 $routes->get('/dosen/riwayatProfesiDosen', 'Dosen::profesi');
