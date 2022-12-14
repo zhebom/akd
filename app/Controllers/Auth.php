@@ -6,22 +6,61 @@ class Auth extends BaseController
 {
     public function login()
     {
+
+      
         $data = [
             'title' => 'Login'
+           
         ];
       
-        echo view('auth/login',$data);
+        return view('auth/login',$data);
         
     }
 
     public function register()
     {
+        session();
+       
         $data = [
-            'title' => 'Pendaftaran Dosen'
+            'title' => 'Login',
+            'validasi' => \Config\Services::validation()
         ];
-       // echo view('section/head',$data);
-      //  echo view('section/sidebar',$data);
-        echo view('auth/register',$data);
-      //  echo view('section/foot',$data);
+        return view('auth/register',$data);
+    
+    }
+
+    public function addDosen()
+    {
+
+      
+      if (!$this->validate(
+        [
+            
+            'name' => 'required',
+            'email' => 'required|valid_email',
+            'pass' => 'required',
+            'passconf' => 'matches[pass]',
+        ],
+        [
+            
+            'name' => [
+                'required' => 'Nama harus diisi',
+            ],
+            'email' => [
+                'required' => 'Email harus diisi',
+                'valid_email' => 'Masukkan email yang benar'
+            ],
+            'pass' => [
+                'required' => 'Password harus diisi',
+            ],
+            'passconf' => [
+                'matches' => 'Password yang dimasukkan tidak sama',
+            ]
+            ]
+    )) {
+        $validasi =  \Config\Services::validation();
+         return redirect()->to(base_url('/register'))->withinput()->with('validation',$validasi);
+    }
+       echo "sukses";
     }
 }

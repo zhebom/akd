@@ -41,12 +41,22 @@ $routes->get('/pendidikan/rekognisiPendidikanDosen', 'Pendidikan::listRekognisiP
 $routes->get('/penelitian/rekognisi', 'Penelitian::rekognisi');
 $routes->get('/penelitian/reportPenelitian', 'Penelitian::reportPenelitian');
 $routes->get('/penelitian/reportJurnal', 'Penelitian::reportJurnal');
+$routes->get('/penelitian/rekognisiPenelitianDosen', 'Penelitian::listRekognisiPenelitian');
+$routes->get('/penelitian/listPenelitianDosen', 'Penelitian::listPenelitianDosen');
+$routes->get('/penelitian/listJurnalDosen', 'Penelitian::listJurnalDosen');
+
 $routes->get('/pengabdian/rekognisi', 'Pengabdian::rekognisi');
 $routes->get('/pengabdian/reportPengabdian', 'Pengabdian::reportPengabdian');
 $routes->get('/pengabdian/reportJurnalPengabdian', 'Pengabdian::reportJurnal');
+
+$routes->get('/pengabdian/rekognisiPengabdianDosen', 'Pengabdian::rekognisiPengabdianDosen');
+$routes->get('/pengabdian/listPengabdianDosen', 'Pengabdian::listPengabdianDosen');
+$routes->get('/pengabdian/listJurnalPengabdian', 'Pengabdian::listJurnalPengabdian');
+
 $routes->get('/gs/reportSitasi', 'Sitasi::index');
 $routes->get('/login', 'Auth::login');
 $routes->get('/register', 'Auth::register');
+$routes->post('/addDosen', 'Auth::addDosen');
 $routes->get('/dosen/riwayatPendidikanDosen', 'Dosen::pendidikan');
 $routes->get('/dosen/riwayatJafaDosen', 'Dosen::jafa');
 $routes->get('/dosen/riwayatProfesiDosen', 'Dosen::profesi');

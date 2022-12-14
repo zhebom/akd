@@ -18,6 +18,22 @@ class Penelitian extends BaseController
         echo view('section/foot',$data);
     }
 
+    public function listRekognisiPenelitian()
+    {
+        $data = [
+            'title' => 'Daftar Rekognisi Penelitian',
+            'mainMenu' => 'Penelitian',
+            'parentMenu' => 'rekognisiPenelitian'
+        ];
+
+
+
+        echo view('section/head',$data);
+        echo view('section/sidebar',$data);
+        echo view('penelitian/listRekognisiPenelitian',$data);
+        echo view('section/foot',$data);
+    }
+
     public function reportPenelitian()
     {
         $data = [
@@ -29,6 +45,22 @@ class Penelitian extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('penelitian/reportPenelitian',$data);
+        echo view('section/foot',$data);
+    }
+
+    public function listPenelitianDosen()
+    {
+        $data = [
+            'title' => 'Daftar Penelitian Dosen',
+            'mainMenu' => 'Penelitian',
+            'parentMenu' => 'reportPenelitian'
+        ];
+
+
+
+        echo view('section/head',$data);
+        echo view('section/sidebar',$data);
+        echo view('penelitian/listPenelitianDosen',$data);
         echo view('section/foot',$data);
     }
 
@@ -45,6 +77,22 @@ class Penelitian extends BaseController
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('penelitian/reportJurnal',$data);
+        echo view('section/foot',$data);
+    }
+
+    public function listJurnalDosen()
+    {
+        $data = [
+            'title' => 'Daftar Jurnal Dosen',
+            'mainMenu' => 'Penelitian',
+            'parentMenu' => 'reportJurnalPenelitian'
+        ];
+
+
+
+        echo view('section/head',$data);
+        echo view('section/sidebar',$data);
+        echo view('penelitian/listJurnalDosen',$data);
         echo view('section/foot',$data);
     }
 }

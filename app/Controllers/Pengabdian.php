@@ -19,6 +19,21 @@ class Pengabdian extends BaseController
         echo view('section/foot',$data);
     }
 
+    public function rekognisiPengabdianDosen()
+    {
+        $data = [
+            'title' => 'Daftar Rekognisi Pengabdian',
+            'mainMenu' => 'Pengabdian',
+            'parentMenu' => 'rekognisiPengabdian'
+            
+        ];
+
+        echo view('section/head',$data);
+        echo view('section/sidebar',$data);
+        echo view('pengabdian/listRekognisiPengabdian',$data);
+        echo view('section/foot',$data);
+    }
+
     public function reportpengabdian()
     {
         $data = [
@@ -33,6 +48,21 @@ class Pengabdian extends BaseController
         echo view('section/foot',$data);
     }
 
+    public function listPengabdianDosen()
+    {
+        $data = [
+            'title' => 'Daftar Pengabdian Dosen',
+            'mainMenu' => 'Pengabdian',
+            'parentMenu' => 'reportPengabdian'
+            
+        ];
+
+        echo view('section/head',$data);
+        echo view('section/sidebar',$data);
+        echo view('pengabdian/listPengabdianDosen',$data);
+        echo view('section/foot',$data);
+    }
+
     public function reportJurnal()
     {
         $data = [
@@ -41,11 +71,24 @@ class Pengabdian extends BaseController
             'parentMenu' => 'reportJurnalPengabdian'
         ];
 
-
-
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
         echo view('pengabdian/reportJurnal',$data);
+        echo view('section/foot',$data);
+    }
+
+    public function listJurnalPengabdian()
+    {
+        $data = [
+            'title' => 'Daftar Jurnal Dosen',
+            'mainMenu' => 'Pengabdian',
+            'parentMenu' => 'reportJurnalPengabdian'
+            
+        ];
+
+        echo view('section/head',$data);
+        echo view('section/sidebar',$data);
+        echo view('pengabdian/listJurnalPengabdian',$data);
         echo view('section/foot',$data);
     }
 }

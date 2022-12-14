@@ -24,11 +24,11 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">ini buat notifikasi register</p>
-
-      <form action="../../index.html" method="post">
+      <p class="login-box-msg"></p>
+    <?= $validasi->listErrors(); ?>
+      <form action="<?= base_url('addDosen'); ?>" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" id="name" name="name" class="form-control" placeholder="Full name" autofocus value="<?= old('name'); ?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" id="email" name="email" class="form-control" placeholder="Email" autofocus value="<?= old('email'); ?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" id="pass" name="pass">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" class="form-control" placeholder="Retype password" id="passconf" name="passconf">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -78,7 +78,7 @@
 
      
 
-      <a href="login.html" class="text-center">I already have a membership</a>
+      <a href="<?= base_url('login'); ?>" class="text-center">Sudah punya akun</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

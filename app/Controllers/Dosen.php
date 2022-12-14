@@ -128,4 +128,11 @@ class Dosen extends BaseController
         echo view('dosen/listbnsp',$data);
         echo view('section/foot',$data);
     }
+
+    public function addDosen()
+    {
+
+      var_dump($this->request->getVar());
+       
+    }
 }

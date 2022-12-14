@@ -154,21 +154,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item ">
-                <a href="<?= base_url('penelitian/reportPenelitian');?>
+              <a href="<?= base_url('penelitian/listPenelitianDosen');?>
                 " class="nav-link <?php if($parentMenu == 'reportPenelitian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Penelitian</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('penelitian/reportJurnal');?>
+                <a href="<?= base_url('penelitian/listJurnalDosen');?>
                 " class="nav-link <?php if($parentMenu == 'reportJurnalPenelitian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jurnal</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('penelitian/rekognisi');?>
+              <a href="<?= base_url('penelitian/rekognisiPenelitianDosen');?>
                 " class="nav-link <?php if($parentMenu == 'rekognisiPenelitian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rekognisi</p>
@@ -187,21 +187,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item ">
-                <a href="<?= base_url('pengabdian/reportPengabdian');?>
+                <a href="<?= base_url('pengabdian/listPengabdianDosen');?>
                 " class="nav-link <?php if($parentMenu == 'reportPengabdian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan pengabdian</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('pengabdian/reportJurnalPengabdian');?>
+                <a href="<?= base_url('pengabdian/listJurnalPengabdian');?>
                 " class="nav-link <?php if($parentMenu == 'reportJurnalPengabdian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jurnal</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?= base_url('pengabdian/rekognisi');?>
+                <a href="<?= base_url('pengabdian/rekognisiPengabdianDosen');?>
                 " class="nav-link <?php if($parentMenu == 'rekognisiPengabdian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rekognisi</p>
