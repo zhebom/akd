@@ -9,7 +9,10 @@ class Penelitian extends BaseController
         $data = [
             'title' => 'Rekognisi Penelitian',
             'mainMenu' => 'Penelitian',
-            'parentMenu' => 'rekognisiPenelitian'
+            'parentMenu' => 'rekognisiPenelitian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
         echo view('section/head',$data);
@@ -23,7 +26,10 @@ class Penelitian extends BaseController
         $data = [
             'title' => 'Daftar Rekognisi Penelitian',
             'mainMenu' => 'Penelitian',
-            'parentMenu' => 'rekognisiPenelitian'
+            'parentMenu' => 'rekognisiPenelitian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -39,7 +45,10 @@ class Penelitian extends BaseController
         $data = [
             'title' => 'Laporan Penelitian',
             'mainMenu' => 'Penelitian',
-            'parentMenu' => 'reportPenelitian'
+            'parentMenu' => 'reportPenelitian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
         echo view('section/head',$data);
@@ -53,7 +62,10 @@ class Penelitian extends BaseController
         $data = [
             'title' => 'Daftar Penelitian Dosen',
             'mainMenu' => 'Penelitian',
-            'parentMenu' => 'reportPenelitian'
+            'parentMenu' => 'reportPenelitian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -69,7 +81,10 @@ class Penelitian extends BaseController
         $data = [
             'title' => 'Jurnal Penelitian',
             'mainMenu' => 'Penelitian',
-            'parentMenu' => 'reportJurnalPenelitian'
+            'parentMenu' => 'reportJurnalPenelitian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -85,7 +100,10 @@ class Penelitian extends BaseController
         $data = [
             'title' => 'Daftar Jurnal Dosen',
             'mainMenu' => 'Penelitian',
-            'parentMenu' => 'reportJurnalPenelitian'
+            'parentMenu' => 'reportJurnalPenelitian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 

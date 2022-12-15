@@ -9,7 +9,10 @@ class Pendidikan extends BaseController
         $data = [
             'title' => 'Rekognisi Pendidikan',
             'mainMenu' => 'Pendidikan',
-            'parentMenu' => 'rekognisiPendidikan'
+            'parentMenu' => 'rekognisiPendidikan',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
         echo view('section/head',$data);
@@ -23,7 +26,10 @@ class Pendidikan extends BaseController
         $data = [
             'title' => 'Daftar Rekognisi Pendidikan',
             'mainMenu' => 'Pendidikan',
-            'parentMenu' => 'rekognisiPendidikan'
+            'parentMenu' => 'rekognisiPendidikan',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 

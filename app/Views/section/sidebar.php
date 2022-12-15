@@ -22,11 +22,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-       <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
+       
       
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -35,7 +31,7 @@
         </a>
 
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">Nama Akun</span>
+          <span class="dropdown-item dropdown-header"><?= $nama_dosen; ?></span>
           <div class="dropdown-divider"></div>
           <a href="<?= base_url('logout') ?>" class="dropdown-item">
             <i class="fas fa-file mr-2"></i> Keluar
@@ -60,7 +56,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block">Nama Akun</a>
+          <a href="#" class="d-block"><?= $nama_dosen; ?></a>
         </div>
       </div>
 

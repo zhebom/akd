@@ -9,7 +9,11 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Riwayat Pendidikan Dosen',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatPendidikanDosen'
+            'parentMenu' => 'riwayatPendidikanDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
+            
             
         ];
 
@@ -23,7 +27,10 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Pendidikan',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatPendidikanDosen'
+            'parentMenu' => 'riwayatPendidikanDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -39,7 +46,10 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Riwayat Jabatan Fungsional Dosen',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatJafaDosen'
+            'parentMenu' => 'riwayatJafaDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
         echo view('section/head',$data);
@@ -53,7 +63,10 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Jabatan Fungsional',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatJafaDosen'
+            'parentMenu' => 'riwayatJafaDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -70,7 +83,10 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Riwayat Pendidikan Profesi',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatProfesiDosen'
+            'parentMenu' => 'riwayatProfesiDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -86,7 +102,10 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Daftar Sertifikasi Profesi',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatProfesiDosen'
+            'parentMenu' => 'riwayatProfesiDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -102,7 +121,10 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Riwayat Sertifikasi Bnsp',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatBnspDosen'
+            'parentMenu' => 'riwayatBnspDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -118,7 +140,10 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Daftar Sertifikasi Bnsp',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatBnspDosen'
+            'parentMenu' => 'riwayatBnspDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
 
@@ -129,10 +154,5 @@ class Dosen extends BaseController
         echo view('section/foot',$data);
     }
 
-    public function addDosen()
-    {
 
-      var_dump($this->request->getVar());
-       
-    }
 }

@@ -9,7 +9,10 @@ class Pengabdian extends BaseController
         $data = [
             'title' => 'Rekognisi Pengabdian',
             'mainMenu' => 'Pengabdian',
-            'parentMenu' => 'rekognisiPengabdian'
+            'parentMenu' => 'rekognisiPengabdian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
             
         ];
 
@@ -24,7 +27,10 @@ class Pengabdian extends BaseController
         $data = [
             'title' => 'Daftar Rekognisi Pengabdian',
             'mainMenu' => 'Pengabdian',
-            'parentMenu' => 'rekognisiPengabdian'
+            'parentMenu' => 'rekognisiPengabdian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
             
         ];
 
@@ -39,7 +45,10 @@ class Pengabdian extends BaseController
         $data = [
             'title' => 'Laporan Pengabdian',
             'mainMenu' => 'Pengabdian',
-            'parentMenu' => 'reportPengabdian'
+            'parentMenu' => 'reportPengabdian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
         echo view('section/head',$data);
@@ -53,7 +62,10 @@ class Pengabdian extends BaseController
         $data = [
             'title' => 'Daftar Pengabdian Dosen',
             'mainMenu' => 'Pengabdian',
-            'parentMenu' => 'reportPengabdian'
+            'parentMenu' => 'reportPengabdian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
             
         ];
 
@@ -68,7 +80,10 @@ class Pengabdian extends BaseController
         $data = [
             'title' => 'Jurnal Pengabdian',
             'mainMenu' => 'Pengabdian',
-            'parentMenu' => 'reportJurnalPengabdian'
+            'parentMenu' => 'reportJurnalPengabdian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
         echo view('section/head',$data);
@@ -82,7 +97,10 @@ class Pengabdian extends BaseController
         $data = [
             'title' => 'Daftar Jurnal Dosen',
             'mainMenu' => 'Pengabdian',
-            'parentMenu' => 'reportJurnalPengabdian'
+            'parentMenu' => 'reportJurnalPengabdian',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
             
         ];
 

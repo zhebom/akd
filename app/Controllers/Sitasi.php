@@ -9,7 +9,10 @@ class Sitasi extends BaseController
         $data = [
             'title' => 'Sitasi Dosen',
             'mainMenu' => 'GS',
-            'parentMenu' => 'reportSitasi'
+            'parentMenu' => 'reportSitasi',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen')
         ];
 
         echo view('section/head',$data);
