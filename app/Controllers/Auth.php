@@ -32,6 +32,7 @@ class Auth extends BaseController
                     'nama_dosen' => $ceklogin['nama_dosen'],
                     'email_dosen' => $ceklogin['email_dosen'],
                     'role_dosen' => $ceklogin['role_dosen'],
+                    'nidn_dosen' => $ceklogin['nidn_dosen'],
                     'logged_id' => TRUE
 
                 ];
@@ -85,6 +86,7 @@ class Auth extends BaseController
       if (!$this->validate(
         [           
             'name' => 'required',
+            
             'email' => 'required|valid_email|is_unique[dosen_febups.email_dosen]',
             'pass' => 'required',
             'passconf' => 'matches[pass]',
@@ -117,8 +119,8 @@ class Auth extends BaseController
           
             'nama_dosen' => $this->request->getVar('name'),
             'email_dosen' => $this->request->getVar('email'),
+            'nidn_dosen' => $this->request->getVar('nidn'),
             'role_dosen' => "2",
-            'pass_dosen' => $this->request->getVar('alamat'),
             'pass_dosen' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT),
             'created_at' => $today
  

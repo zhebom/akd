@@ -10,7 +10,7 @@ class DosenModel extends Model
     protected $primaryKey = 'id_dosen';
     protected $useAutoIncrement = true;
     protected $useSoftDeletes = true;
-    protected $allowedFields = ['nama_dosen', 'email_dosen','pass_dosen','role_dosen'];
+    protected $allowedFields = ['nama_dosen', 'email_dosen','pass_dosen','role_dosen','nidn_dosen'];
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

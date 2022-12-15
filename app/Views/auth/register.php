@@ -41,6 +41,14 @@
           </div>
         </div>
         <div class="input-group mb-3">
+          <input type="text" id="nidn" name="nidn" class="form-control" placeholder="Boleh Dikosongkan " autofocus value="<?= old('nidn'); ?>">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
           <input type="email" id="email" name="email" class="form-control" placeholder="Email" autofocus value="<?= old('email'); ?>">
           <div class="input-group-append">
             <div class="input-group-text">

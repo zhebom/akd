@@ -10,32 +10,25 @@
               <form>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Rekognisi Sebagai</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Rekognisi">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Diundang oleh</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Diundang oleh">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Tahun</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Pada Tahun">
-                  </div>
-                   
-                  <div class="form-group">
-                    <!-- select -->
-                    
-                        <label>Skala Rekognisi</label>
-                        <select class="form-control">
-                          <option>Lokal</option>
-                          <option>Nasional</option>
-                          <option>Internasional</option>
+                    <label for="exampleInputEmail1">Pendidikan</label>
+                    <select class="form-control">
+                          <option>SARJANA</option>
+                          <option>MAGISTER</option>
+                          <option>DOKTORAL</option>
                         
                         </select>
-                     
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Upload Bukti dalam 1 File PDF</label>
+                    <label for="exampleInputEmail1">Tempat</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Universitas">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tahun Lulus</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Pada Tahun">
+                  </div>
+                 
+                  <div class="form-group">
+                    <label for="exampleInputFile">Upload Ijazah & Transkrip dalam 1 File PDF</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile">

@@ -12,7 +12,8 @@ class Penelitian extends BaseController
             'parentMenu' => 'rekognisiPenelitian',
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
-            'email_dosen' => session()->get('email_dosen')
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen')
         ];
 
         echo view('section/head',$data);
@@ -29,7 +30,8 @@ class Penelitian extends BaseController
             'parentMenu' => 'rekognisiPenelitian',
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
-            'email_dosen' => session()->get('email_dosen')
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen')
         ];
 
 
@@ -48,7 +50,8 @@ class Penelitian extends BaseController
             'parentMenu' => 'reportPenelitian',
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
-            'email_dosen' => session()->get('email_dosen')
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen')
         ];
 
         echo view('section/head',$data);
@@ -65,7 +68,8 @@ class Penelitian extends BaseController
             'parentMenu' => 'reportPenelitian',
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
-            'email_dosen' => session()->get('email_dosen')
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen')
         ];
 
 
@@ -84,7 +88,8 @@ class Penelitian extends BaseController
             'parentMenu' => 'reportJurnalPenelitian',
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
-            'email_dosen' => session()->get('email_dosen')
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen')
         ];
 
 
@@ -103,7 +108,8 @@ class Penelitian extends BaseController
             'parentMenu' => 'reportJurnalPenelitian',
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
-            'email_dosen' => session()->get('email_dosen')
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen')
         ];
 
 

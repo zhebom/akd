@@ -55,8 +55,10 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="info">
-          <a href="#" class="d-block"><?= $nama_dosen; ?></a>
+             <div class="info">
+       
+          <a href="#" class="d-block"><h4><?= $nama_dosen; ?></h4></a>
+          <a href="#" class="d-block"><h6><?= $nidn_dosen; ?></h6></a>
         </div>
       </div>
 
