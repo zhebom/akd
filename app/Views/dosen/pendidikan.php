@@ -7,36 +7,43 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
-                <div class="card-body">
+             
+              <form action="<?= base_url('dosen/addPendidikanDosen'); ?>" method="post" enctype="multipart/form-data">
+              
+              <div class="card-body">
+              <?= $validasi->listErrors(); ?>
+              <strong><?= session()->getFlashdata('msg') ?></strong>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Pendidikan</label>
-                    <select class="form-control">
-                          <option>SARJANA</option>
-                          <option>MAGISTER</option>
-                          <option>DOKTORAL</option>
+                    <select id="tingkat" name="tingkat" class="form-control">
+                          <option value="S1">SARJANA</option>
+                          <option value="S2">MAGISTER</option>
+                          <option value="S3">DOKTORAL</option>
                         
                         </select>
                   </div>
+                  
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Jurusan</label>
+                    <input type="text" class="form-control" id="jurusan" name="jurusan" placeholder="Jurusan" value="<?= old('tempat'); ?>">
+                  </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Tempat</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Universitas">
+                    <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Universitas" value="<?= old('tempat'); ?>">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Tahun Lulus</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Pada Tahun">
+                    <input type="text" class="form-control" id="tahun" name="tahun" placeholder="Pada Tahun" value="<?= old('tahun'); ?>">
                   </div>
                  
                   <div class="form-group">
-                    <label for="exampleInputFile">Upload Ijazah & Transkrip dalam 1 File PDF</label>
-                    <div class="input-group">
+                    <label for="pdfku">Upload Ijazah & Transkrip dalam 1 File PDF</label>
+                   
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
+                        <input type="file" class="custom-file-input " id="pdfku" name="pdfku">
+                       
+                        <label class="custom-file-label" for="pdfku">Choose file</label>
+                     
                     </div>
                   </div>
                  

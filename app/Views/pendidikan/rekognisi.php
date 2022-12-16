@@ -10,13 +10,8 @@
               <form>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Pendidikan</label>
-                    <select class="form-control">
-                          <option>SARJANA</option>
-                          <option>MAGISTER</option>
-                          <option>DOKTORAL</option>
-                        
-                        </select>
+                    <label for="exampleInputEmail1">Rekognisi Sebagai</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Rekognisi">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Diundang oleh</label>
