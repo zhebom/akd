@@ -69,6 +69,7 @@ $routes->get('/dosen/listProfesiDosen', 'Dosen::listProfesi');
 $routes->get('/dosen/listJafaDosen', 'Dosen::listJafa');
 $routes->get('/dosen/listPendidikanDosen', 'Dosen::listPendidikan');
 $routes->post('/dosen/addPendidikanDosen', 'Dosen::addPendidikanDosen');
+$routes->delete('/dosen/delete/(:num)', 'Dosen::delPendidikanDosen/$1');
 
 
 /*

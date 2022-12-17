@@ -5,53 +5,46 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              <?= session()->getFlashdata('msg') ?>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>No</th>
+                    <th>Tingkat</th>
+                    <th>Jurusan</th>
+                    <th>Universitas</th>
+                    <th>Lulus</th>
+                    <th>Bukti</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    $id = 1;
+                    
+                    foreach ($query as $q){?>
+                    
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                    <td><?= $id; ?></td>
+                    <td><?= $q->tingkat; ?></td>
+                    <td><?= $q->jurusan; ?></td>
+                    <td><?= $q->universitas; ?></td>
+                    <td><?= $q->tahun; ?></td>
+                    <td><a href="<?= base_url(('profilDosen/').$q->file);?>
+                    " class="btn btn-warning"> bukti </a></td>
+                    <td>
+                      <form action="<?= base_url('dosen/delete/'.$q->id);?>"
+                      
+                       method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
                   </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 6
-                    </td>
-                    <td>Win 98+</td>
-                    <td>6</td>
-                    <td>A</td>
-                  </tr>
+                <?php 
+              $id++;
+              }?>
+                  
                   
                   </tfoot>
                 </table>

@@ -9,11 +9,11 @@ class RiwPendModel extends Model
     protected $table      = 'riwpendidikan_dosen';
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
-    protected $useSoftDeletes = true;
+    
     protected $allowedFields = ['id_dosen', 'universitas','tahun','file','jurusan','tingkat'];
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    
 
 }

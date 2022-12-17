@@ -16,7 +16,8 @@ class Home extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'id_dosen' => session()->get('id_dosen')
         
         ];
         echo view('section/head',$data);

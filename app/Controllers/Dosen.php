@@ -27,6 +27,12 @@ class Dosen extends BaseController
     public function listPendidikan()
     {
         
+
+        $id_dosen = session()->get('id_dosen');
+        $riwPendModel = new RiwPendModel();
+        $query = $riwPendModel->query("SELECT * FROM riwpendidikan_dosen WHERE id_dosen = $id_dosen order by tahun ASC")->getResult();
+
+        
         $data = [
             'title' => 'Pendidikan',
             'mainMenu' => 'Dosen',
@@ -34,7 +40,9 @@ class Dosen extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'id_dosen' => session()->get('id_dosen'),
+            'query' => $query
             
         ];
 
@@ -216,7 +224,7 @@ class Dosen extends BaseController
         $namaFile = $filePend->getName();
         $riwPendModel->save([
           
-            'id_dosen' => session()->get('nidn_dosen'),
+            'id_dosen' => session()->get('id_dosen'),
             'universitas' => $this->request->getVar('tempat'),
             'jurusan' => $this->request->getVar('jurusan'),
             'tahun' => $this->request->getVar('tahun'),
@@ -227,8 +235,17 @@ class Dosen extends BaseController
         ]);
         
         $validasi =  \Config\Services::validation();
-        session()->setFlashdata('msg', '<div class="alert alert-primary" role="alert">Pendidikan Berhasil Ditambah</div>');
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pendidikan Berhasil Ditambah</div>');
         return redirect()->to(base_url('/dosen/riwayatPendidikanDosen'));
     }
+
+    public function delPendidikanDosen($id)
+    {
+        $riwPendModel = new RiwPendModel();
+        $riwPendModel->delete($id);
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pendidikan Berhasil Dihapus</div>');
+       return redirect()->to(base_url('/dosen/listPendidikanDosen'));
+    }
+   
 
 }
