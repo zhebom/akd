@@ -30,7 +30,7 @@ class Dosen extends BaseController
 
         $id_dosen = session()->get('id_dosen');
         $riwPendModel = new RiwPendModel();
-        $query = $riwPendModel->query("SELECT * FROM riwpendidikan_dosen WHERE id_dosen = $id_dosen order by tahun ASC")->getResult();
+        $query = $riwPendModel->query("SELECT * FROM riwpendidikan_dosen WHERE id_dosen = $id_dosen ORDER BY tahun ASC")->getResult();
 
         
         $data = [

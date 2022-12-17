@@ -7,14 +7,21 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Doktoral</h3>
-
-                <p>Pendidikan Terakhir</p>
+                <h3><?php  
+                if($query){
+                echo $query->tingkat;
+              
+                ?>
+                </h3>
+               
+                <p><?= $query->jurusan;?>
+                </p>
+              <?php } else {echo "-";} ?>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="<?= base_url() ?>/dosen/riwayatPendidikanDosen" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url() ?>/dosen/listPendidikanDosen" class="small-box-footer">Pendidikan Terakhir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
