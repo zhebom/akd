@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\RiwPendModel;
+use App\Models\RiwJafaModel;
 class Dosen extends BaseController
 {
     public function pendidikan()
@@ -63,7 +64,9 @@ class Dosen extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'id_dosen' => session()->get('id_dosen'),
+            'validasi' => \Config\Services::validation()
         ];
 
         echo view('section/head',$data);
@@ -184,6 +187,8 @@ class Dosen extends BaseController
            
             'jurusan' => 'required'
             ,
+            'tingkat' => 'required'
+            ,
 
             'pdfku' => 'uploaded[pdfku]|ext_in[pdfku,pdf]'
                              ],
@@ -195,6 +200,10 @@ class Dosen extends BaseController
 
             'tahun' => [ 
                 'required' => 'Tahun harus diisi'
+
+            ],
+            'tingkat' => [ 
+                'required' => 'Pendidikan harus dipilih'
 
             ],
             'pdfku' => [
@@ -248,4 +257,59 @@ class Dosen extends BaseController
     }
    
 
+    public function addJafaDosen()
+    {
+       
+      if (!$this->validate(
+        [           
+                        
+            'tahun' => 'required',
+            'jafa' => 'required',
+           
+            'pdfku' => 'uploaded[pdfku]|ext_in[pdfku,pdf]'
+                             ],
+        [            
+           
+            'tahun' => [ 
+                'required' => 'Tahun harus diisi'
+
+            ],
+            'jafa' => [ 
+                'required' => 'Jabatan harus dipilih'
+
+            ],
+            'pdfku' => [
+                'uploaded' => 'lho kok belum upload',
+                'ext_in' => 'PDF lho bukan yang lain'
+            ]
+
+           
+            ]
+    )) {
+        
+        session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+        return redirect()->to(base_url('dosen/riwayatJafaDosen'))->withinput();
+    
+        }
+    
+        $today = date("Y-m-d H:i:s");
+        $riwJafaModel = new RiwJafaModel();
+        $filePend = $this->request->getFile('pdfku');
+       
+        $filePend->move('profilDosen');
+        $namaFile = $filePend->getName();
+        $riwJafaModel->save([
+          
+            'id_dosen' => session()->get('id_dosen'),
+            'jafa_dosen' => $this->request->getVar('jafa'),
+            'tahun' => $this->request->getVar('tahun'),
+            'file' => $namaFile,
+            'created_at' => $today
+ 
+        ]);
+        
+        $validasi =  \Config\Services::validation();
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Jabatan Fungsional Berhasil Ditambah</div>');
+        return redirect()->to(base_url('/dosen/riwayatJafaDosen'));
+    }
 }

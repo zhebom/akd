@@ -29,14 +29,21 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>Lektor Kepala</h3>
+                <h3><?php  
+                if($jafa){
+                echo $jafa->jafa_dosen;
+              
+                ?>
+                </h3>
+               
+              <?php } else {echo "-";} ?>
 
                 <p>Jabatan Fungsional</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="<?= base_url() ?>/dosen/riwayatJafaDosen" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url() ?>/dosen/listJafaDosen" class="small-box-footer">Jafa Terakhir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

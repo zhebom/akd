@@ -16,6 +16,7 @@
                   <div class="form-group">
                     <label for="exampleInputEmail1">Pendidikan</label>
                     <select id="tingkat" name="tingkat" class="form-control">
+                    <option value="">-- Pilih Pendidikan --</option>
                           <option value="S1">SARJANA</option>
                           <option value="S2">MAGISTER</option>
                           <option value="S3">DOKTORAL</option>

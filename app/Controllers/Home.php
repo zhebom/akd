@@ -8,7 +8,8 @@ class Home extends BaseController
     {     $id_dosen = session()->get('id_dosen');
         $riwPendModel = new RiwPendModel();
         $query = $riwPendModel->query("SELECT tingkat, jurusan FROM riwpendidikan_dosen WHERE id_dosen = $id_dosen ORDER BY tahun DESC")->getFirstRow();
-        
+        $riwPendModel = new RiwPendModel();
+        $jafa = $riwPendModel->query("SELECT jafa_dosen FROM riwjafa_dosen WHERE id_dosen = $id_dosen ORDER BY tahun DESC")->getFirstRow();
         $data = [
             'title' => 'Dashboard',
             'mainMenu' => 'Dashboard',
@@ -18,7 +19,8 @@ class Home extends BaseController
             'email_dosen' => session()->get('email_dosen'),
             'nidn_dosen' => session()->get('nidn_dosen'),
             'id_dosen' => session()->get('id_dosen'),
-            'query' => $query
+            'query' => $query,
+            'jafa' => $jafa
         
         ];
         echo view('section/head',$data);

@@ -69,6 +69,7 @@ $routes->get('/dosen/listProfesiDosen', 'Dosen::listProfesi', ['filter' => 'auth
 $routes->get('/dosen/listJafaDosen', 'Dosen::listJafa', ['filter' => 'auth']);
 $routes->get('/dosen/listPendidikanDosen', 'Dosen::listPendidikan', ['filter' => 'auth']);
 $routes->post('/dosen/addPendidikanDosen', 'Dosen::addPendidikanDosen', ['filter' => 'auth']);
+$routes->post('/dosen/addJafaDosen', 'Dosen::addJafaDosen', ['filter' => 'auth']);
 $routes->delete('/dosen/delete/(:num)', 'Dosen::delPendidikanDosen/$1', ['filter' => 'auth']);
 
 
