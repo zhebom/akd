@@ -25,9 +25,10 @@ class Pendidikan extends BaseController
 
     public function listRekognisiPendidikan()
     {
+        $pdd = 'pendidikan';
         $id_dosen = session()->get('id_dosen');
         $RekognisiModel = new RekognisiModel();
-        $rekognisi = $RekognisiModel->query("SELECT * FROM rekognisi_dosen WHERE id_dosen = $id_dosen ORDER BY tahun ASC ")->getResult();
+        $rekognisi = $RekognisiModel->query("SELECT * FROM rekognisi_dosen WHERE id_dosen = $id_dosen AND kd_tridharma = '$pdd' ORDER BY tahun ASC ")->getResult();
         
         $validasi =  \Config\Services::validation();
         $data = [
@@ -114,14 +115,14 @@ class Pendidikan extends BaseController
         ]);
         
         $validasi =  \Config\Services::validation();
-        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Profesi Berhasil Ditambah</div>');
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Rekognisi Berhasil Ditambah</div>');
         return redirect()->to(base_url('/pendidikan/rekognisi'));
     }
     public function delRekognisiDosen($id)
     {
         $riwRekognisiModel = new RekognisiModel();
         $riwRekognisiModel->delete($id);
-        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pendidikan Berhasil Dihapus</div>');
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Rekognisi Berhasil Dihapus</div>');
        return redirect()->to(base_url('/pendidikan/rekognisiPendidikanDosen'));
     }
 }

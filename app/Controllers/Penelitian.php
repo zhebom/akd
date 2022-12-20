@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\RekognisiModel;
 class Penelitian extends BaseController
 {
     public function rekognisi()
@@ -24,6 +24,12 @@ class Penelitian extends BaseController
 
     public function listRekognisiPenelitian()
     {
+        $pdd = 'penelitian';
+        $id_dosen = session()->get('id_dosen');
+        $RekognisiModel = new RekognisiModel();
+        $rekognisi = $RekognisiModel->query("SELECT * FROM rekognisi_dosen WHERE id_dosen = $id_dosen AND kd_tridharma = '$pdd' ORDER BY tahun ASC ")->getResult();
+        
+        $validasi =  \Config\Services::validation();
         $data = [
             'title' => 'Daftar Rekognisi Penelitian',
             'mainMenu' => 'Penelitian',
@@ -31,7 +37,9 @@ class Penelitian extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'rekognisi' => $rekognisi,
+            'validasi'=>$validasi
         ];
 
 
@@ -41,6 +49,9 @@ class Penelitian extends BaseController
         echo view('penelitian/listRekognisiPenelitian',$data);
         echo view('section/foot',$data);
     }
+
+
+    
 
     public function reportPenelitian()
     {
@@ -119,4 +130,6 @@ class Penelitian extends BaseController
         echo view('penelitian/listJurnalDosen',$data);
         echo view('section/foot',$data);
     }
+
+    
 }

@@ -1,57 +1,49 @@
 <div class="card">
               <div class="card-header">
                 <!-- <h3 class="card-title">Daftar Sertifikasi BNSP</h3> -->
-                <a href="<?= base_url('penelitian/rekognisi'); ?>" type="button" class="btn btn-primary">Tambah Rekognisi Penelitian</a>
+                <a href="<?= base_url('pendidikan/rekognisi'); ?>" type="button" class="btn btn-primary">Tambah Rekognisi Penelitian</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              <?= $validasi->listErrors(); ?>
+              <strong><?= session()->getFlashdata('msg') ?></strong>
+            
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>No</th>
+                    <th>Tridharma</th>
+                    <th>Rekognisi</th>
+                    <th>Oleh</th>
+                    <th>Skala</th>
+                    <th>Tahun</th>
+                    <th>Bukti</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php $no = 1; foreach($rekognisi as $r): ?>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                    <td><?= $no; ?></td>
+                    <td><?= $r->kd_tridharma; ?>
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
+                    <td><?= $r->rekognisi; ?></td>
+                    <td><?= $r->oleh; ?></td>
+                    <td><?= $r->skala; ?></td>
+                    <td><?= $r->tahun; ?></td>
+                    <td><a class="btn btn-success"href="<?= base_url('rekognisiDosen/',$r->file); ?>" target="_blank" rel="noopener noreferrer">Bukti</a></td>
+                    <td>
+                    <form action="<?= base_url('rekognisi/deleteRekognisi/'.$r->id);?>"
+                      
+                      method="post">
+                       <input type="hidden" name="_method" value="DELETE">
+                       <button type="submit" class="btn btn-danger">Delete</button>
+                     </form>
                     </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
                   </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 6
-                    </td>
-                    <td>Win 98+</td>
-                    <td>6</td>
-                    <td>A</td>
-                  </tr>
+                 <?php 
+                $no++;
+                endforeach; ?>
                   
                   </tfoot>
                 </table>
