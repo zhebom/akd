@@ -14,11 +14,7 @@
                     <th>Penyelenggara</th>
                     <th>Berlaku Hingga</th>
                     <th>Bukti</th>
-<<<<<<< HEAD
                     <th>Aksi</th>
-=======
-                    <th>Bukti</th>
->>>>>>> ff1f0213dda4ca4efc656e2c44091c02124e3f59
                   </tr>
                   </thead>
                   <tbody>

@@ -268,8 +268,8 @@ class Dosen extends BaseController
     {
         $riwPendModel = new RiwPendModel();
         $riwPendModel->delete($id);
-        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pendidikan Berhasil Dihapus</div>');
-       return redirect()->to(base_url('/dosen/listPendidikanDosen'));
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Rekognisi Berhasil Dihapus</div>');
+       return redirect()->to(base_url('/pendidikan/listPendidikanDosen'));
     }
    
 
@@ -399,7 +399,6 @@ class Dosen extends BaseController
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Profesi Berhasil Ditambah</div>');
         return redirect()->to(base_url('/dosen/riwayatProfesiDosen'));
     }
-<<<<<<< HEAD
     public function delProfesiDosen($id)
     {
         $riwProfesiModel = new RiwProfesiModel();
@@ -407,6 +406,4 @@ class Dosen extends BaseController
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Profesi Berhasil Dihapus</div>');
        return redirect()->to(base_url('/dosen/listProfesiDosen'));
     }
-=======
->>>>>>> ff1f0213dda4ca4efc656e2c44091c02124e3f59
 }
