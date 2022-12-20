@@ -7,14 +7,21 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Doktoral</h3>
-
-                <p>Pendidikan Terakhir</p>
+                <h3><?php  
+                if($query){
+                echo $query->tingkat;
+              
+                ?>
+                </h3>
+               
+                <p><?= $query->jurusan;?>
+                </p>
+              <?php } else {echo "-";} ?>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="<?= base_url() ?>/dosen/riwayatPendidikanDosen" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url() ?>/dosen/listPendidikanDosen" class="small-box-footer">Pendidikan Terakhir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -22,14 +29,21 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>Lektor Kepala</h3>
+                <h3><?php  
+                if($jafa){
+                echo $jafa->jafa_dosen;
+              
+                ?>
+                </h3>
+               
+              <?php } else {echo "-";} ?>
 
                 <p>Jabatan Fungsional</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="<?= base_url() ?>/dosen/riwayatJafaDosen" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url() ?>/dosen/listJafaDosen" class="small-box-footer">Jafa Terakhir <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -37,31 +51,18 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>2</h3>
+                <h3><?= Count($profesi); ?></h3>
 
                 <p>Sertifikat Profesi</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="<?= base_url() ?>/dosen/riwayatProfesiDosen" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?= base_url() ?>/dosen/listProfesiDosen" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>1</h3>
-
-                <p>Sertifikat BNSP</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="<?= base_url() ?>/dosen/riwayatBnspDosen" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+          
           <!-- ./col -->
         </div>
 

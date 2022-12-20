@@ -7,43 +7,43 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="<?= base_url('dosen/addProfesiDosen'); ?>" method="post" enctype="multipart/form-data"><form >
                 <div class="card-body">
+                <?= $validasi->listErrors(); ?>
+              <strong><?= session()->getFlashdata('msg') ?></strong>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Rekognisi Sebagai</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Rekognisi">
+                    <label for="penyelenggara" >Penyelenggara</label>
+                    <input type="text" class="form-control" id="penyelenggara" name="penyelenggara"  placeholder="Misal : BNSP, atau lainnya" value="<?= old('penyelenggara'); ?>">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Diundang oleh</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Diundang oleh">
+                    <label for="kompetensi">Kompetensi / Gelar Yang Didapat</label>
+                    <input type="text" class="form-control" id="kompetensi" name="kompetensi" placeholder="Kompetensi / Gelar" value="<?= old('kompetensi'); ?>">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Tahun</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Pada Tahun">
+                    <label for="date">Berlaku Hingga</label>
+                    <input type="date" class="form-control" id="date" name="date" placeholder="Berlaku Hingga">
                   </div>
-                   
+                                     
                   <div class="form-group">
                     <!-- select -->
                     
-                        <label>Skala Rekognisi</label>
-                        <select class="form-control">
-                          <option>Lokal</option>
-                          <option>Nasional</option>
-                          <option>Internasional</option>
+                        <label>Skala</label>
+                        <select id="skala" name="skala" class="form-control">
+                        <option value="">-- Pilih Skala Profesi --</option>  
+                        <option value="nasional">Nasional</option>
+                         <option value="internasional">Internasional</option>
                         
                         </select>
                      
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Upload Bukti dalam 1 File PDF</label>
+                    <label for="file">Upload Bukti dalam 1 File PDF</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="pdfku" name="pdfku">
+                        <label class="custom-file-label" for="pdfku">Choose File   </label>
                       </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
+                      
                     </div>
                   </div>
                  

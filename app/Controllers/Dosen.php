@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\RiwPendModel;
+use App\Models\RiwJafaModel;
+use App\Models\RiwProfesiModel;
 class Dosen extends BaseController
 {
     public function pendidikan()
@@ -27,6 +29,12 @@ class Dosen extends BaseController
     public function listPendidikan()
     {
         
+
+        $id_dosen = session()->get('id_dosen');
+        $riwPendModel = new RiwPendModel();
+        $query = $riwPendModel->query("SELECT * FROM riwpendidikan_dosen WHERE id_dosen = $id_dosen ORDER BY tahun ASC")->getResult();
+
+        
         $data = [
             'title' => 'Pendidikan',
             'mainMenu' => 'Dosen',
@@ -34,7 +42,9 @@ class Dosen extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'id_dosen' => session()->get('id_dosen'),
+            'query' => $query
             
         ];
 
@@ -48,6 +58,8 @@ class Dosen extends BaseController
 
     public function jafa()
     {
+        $id_dosen = session()->get('id_dosen');
+        
         $data = [
             'title' => 'Riwayat Jabatan Fungsional Dosen',
             'mainMenu' => 'Dosen',
@@ -55,7 +67,10 @@ class Dosen extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'id_dosen' => session()->get('id_dosen'),
+            
+            'validasi' => \Config\Services::validation()
         ];
 
         echo view('section/head',$data);
@@ -66,6 +81,10 @@ class Dosen extends BaseController
 
     public function listJafa()
     {
+        $id_dosen = session()->get('id_dosen');
+        $riwJafaModel = new RiwJafaModel();
+        $query = $riwJafaModel->query("SELECT * FROM riwjafa_dosen WHERE id_dosen = $id_dosen ORDER BY tahun ASC")->getResult();
+        
         $data = [
             'title' => 'Jabatan Fungsional',
             'mainMenu' => 'Dosen',
@@ -73,7 +92,8 @@ class Dosen extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'jafa' => $query
         ];
 
 
@@ -94,7 +114,9 @@ class Dosen extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'validasi' => \Config\Services::validation()
+            
         ];
 
 
@@ -107,6 +129,10 @@ class Dosen extends BaseController
 
     public function listProfesi()
     {
+        $id_dosen = session()->get('id_dosen');
+        $riwProfesiModel = new RiwProfesiModel();
+        $profesi = $riwProfesiModel->query("SELECT * FROM riwprofesi_dosen WHERE id_dosen = $id_dosen ORDER BY berlaku ASC")->getResult();
+        
         $data = [
             'title' => 'Daftar Sertifikasi Profesi',
             'mainMenu' => 'Dosen',
@@ -114,7 +140,8 @@ class Dosen extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'profesi' => $profesi
         ];
 
 
@@ -176,6 +203,8 @@ class Dosen extends BaseController
            
             'jurusan' => 'required'
             ,
+            'tingkat' => 'required'
+            ,
 
             'pdfku' => 'uploaded[pdfku]|ext_in[pdfku,pdf]'
                              ],
@@ -187,6 +216,10 @@ class Dosen extends BaseController
 
             'tahun' => [ 
                 'required' => 'Tahun harus diisi'
+
+            ],
+            'tingkat' => [ 
+                'required' => 'Pendidikan harus dipilih'
 
             ],
             'pdfku' => [
@@ -216,7 +249,7 @@ class Dosen extends BaseController
         $namaFile = $filePend->getName();
         $riwPendModel->save([
           
-            'id_dosen' => session()->get('nidn_dosen'),
+            'id_dosen' => session()->get('id_dosen'),
             'universitas' => $this->request->getVar('tempat'),
             'jurusan' => $this->request->getVar('jurusan'),
             'tahun' => $this->request->getVar('tahun'),
@@ -227,8 +260,150 @@ class Dosen extends BaseController
         ]);
         
         $validasi =  \Config\Services::validation();
-        session()->setFlashdata('msg', '<div class="alert alert-primary" role="alert">Pendidikan Berhasil Ditambah</div>');
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pendidikan Berhasil Ditambah</div>');
         return redirect()->to(base_url('/dosen/riwayatPendidikanDosen'));
     }
 
+    public function delPendidikanDosen($id)
+    {
+        $riwPendModel = new RiwPendModel();
+        $riwPendModel->delete($id);
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pendidikan Berhasil Dihapus</div>');
+       return redirect()->to(base_url('/dosen/listPendidikanDosen'));
+    }
+   
+
+    public function addJafaDosen()
+    {
+       
+      if (!$this->validate(
+        [           
+                        
+            'tahun' => 'required',
+            'jafa' => 'required',
+           
+            'pdfku' => 'uploaded[pdfku]|ext_in[pdfku,pdf]'
+                             ],
+        [            
+           
+            'tahun' => [ 
+                'required' => 'Tahun harus diisi'
+
+            ],
+            'jafa' => [ 
+                'required' => 'Jabatan harus dipilih'
+
+            ],
+            'pdfku' => [
+                'uploaded' => 'lho kok belum upload',
+                'ext_in' => 'PDF lho bukan yang lain'
+            ]
+
+           
+            ]
+    )) {
+        
+        session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+        return redirect()->to(base_url('dosen/riwayatJafaDosen'))->withinput();
+    
+        }
+    
+        $today = date("Y-m-d H:i:s");
+        $riwJafaModel = new RiwJafaModel();
+        $filePend = $this->request->getFile('pdfku');
+       
+        $filePend->move('profilDosen');
+        $namaFile = $filePend->getName();
+        $riwJafaModel->save([
+          
+            'id_dosen' => session()->get('id_dosen'),
+            'jafa_dosen' => $this->request->getVar('jafa'),
+            'tahun' => $this->request->getVar('tahun'),
+            'file' => $namaFile,
+            'created_at' => $today
+ 
+        ]);
+        
+        $validasi =  \Config\Services::validation();
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Jabatan Fungsional Berhasil Ditambah</div>');
+        return redirect()->to(base_url('/dosen/riwayatJafaDosen'));
+    }
+
+    public function delJafaDosen($id)
+    {
+        $riwJafaModel = new RiwJafaModel();
+        $riwJafaModel->delete($id);
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Jabatan Fungsional Berhasil Dihapus</div>');
+       return redirect()->to(base_url('/dosen/listJafaDosen'));
+    }
+
+    public function addProfesiDosen()
+    {
+       
+      if (!$this->validate(
+        [           
+            'penyelenggara' => 'required',            
+            'kompetensi' => 'required',
+            'date' => 'required',
+            'skala' => 'required',
+           
+            'pdfku' => 'uploaded[pdfku]|ext_in[pdfku,pdf]'
+                             ],
+        [            
+           
+            'penyelenggara' => [ 
+                'required' => 'Penyelenggara harus diisi'
+            ],
+            'kompetensi' => [ 
+                'required' => 'kompetensi harus diisi'
+            ],
+            'date' => [ 
+                'required' => 'Berlaku hingga harus diisi'
+            ],
+            'skala' => [ 
+                'required' => 'Skala harus diisi'
+            ],
+            'pdfku' => [
+                'uploaded' => 'lho kok belum upload',
+                'ext_in' => 'PDF lho bukan yang lain'
+            ]
+
+           
+            ]
+    )) {
+        
+        session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+        return redirect()->to(base_url('dosen/riwayatProfesiDosen'))->withinput();
+    
+        }
+    
+        $today = date("Y-m-d H:i:s");
+        $riwProfesiModel = new RiwProfesiModel();
+        $filePend = $this->request->getFile('pdfku');
+       
+        $filePend->move('profilDosen');
+        $namaFile = $filePend->getName();
+        $riwProfesiModel->save([
+          
+            'id_dosen' => session()->get('id_dosen'),
+            'penyelenggara' => $this->request->getVar('penyelenggara'),
+            'kompetensi' => $this->request->getVar('kompetensi'),
+            'berlaku' => $this->request->getVar('date'),
+            'skala' => $this->request->getVar('skala'),
+            'file' => $namaFile,
+            'created_at' => $today
+ 
+        ]);
+        
+        $validasi =  \Config\Services::validation();
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Profesi Berhasil Ditambah</div>');
+        return redirect()->to(base_url('/dosen/riwayatProfesiDosen'));
+    }
+    public function delProfesiDosen($id)
+    {
+        $riwProfesiModel = new RiwProfesiModel();
+        $riwProfesiModel->delete($id);
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Profesi Berhasil Dihapus</div>');
+       return redirect()->to(base_url('/dosen/listProfesiDosen'));
+    }
 }

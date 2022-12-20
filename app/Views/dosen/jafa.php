@@ -7,39 +7,37 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              
+              <form action="<?= base_url('dosen/addJafaDosen'); ?>" method="post" enctype="multipart/form-data">
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Rekognisi Sebagai</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Rekognisi">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Diundang oleh</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Diundang oleh">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Tahun</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Pada Tahun">
-                  </div>
-                   
-                  <div class="form-group">
+                <?= $validasi->listErrors(); ?>
+                <strong><?= session()->getFlashdata('msg') ?></strong>
+                <div class="form-group">
                     <!-- select -->
                     
-                        <label>Skala Rekognisi</label>
-                        <select class="form-control">
-                          <option>Lokal</option>
-                          <option>Nasional</option>
-                          <option>Internasional</option>
-                        
+                        <label>Jabatan Fungsional</label>
+                        <select class="form-control" id="jafa" name="jafa">
+                        <option value="">-- Pilih Jabatan Fungsional --</option>
+                          <option value="AA">Asisten Ahli</option>
+                          <option value="L">Lektor</option>
+                          <option value="LK">Lektor Kepala</option>
+                          <option value="GB">Guru Besar</option>                       
                         </select>
                      
                   </div>
+                 
+                  <div class="form-group">
+                    <label for="tahun">Tahun</label>
+                    <input type="text" class="form-control" id="tahun" name="tahun" placeholder="Pada Tahun">
+                  </div>
+                   
+                  
                   <div class="form-group">
                     <label for="exampleInputFile">Upload Bukti dalam 1 File PDF</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <input type="file" class="custom-file-input" id="pdfku" name="pdfku">
+                        <label class="custom-file-label" for="pdfku" >Choose file</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text">Upload</span>

@@ -5,53 +5,38 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              <?= session()->getFlashdata('msg') ?>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>No</th>
+                    <th>Kompetensi</th>
+                    <th>Penyelenggara</th>
+                    <th>Berlaku Hingga</th>
+                    <th>Bukti</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php 
+                    $no = 1;
+                    foreach($profesi as $p):  ?>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                    <td><?= $no ?></td>
+                    <td><?= $p->kompetensi; ?>
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
+                    <td><?= $p->penyelenggara; ?></td>
+                    <td><?= $p->berlaku ?></td>
+                    <td><a href="<?= base_url('profilDosen/'.$p->file); ?>" class="btn btn-success" target="_blank" rel="noopener noreferrer">Bukti</a></td>
+                    <td>
+                    <form action="<?= base_url('dosen/deleteProfesi/'.$p->id);?>"
+                      
+                       method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
                   </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 6
-                    </td>
-                    <td>Win 98+</td>
-                    <td>6</td>
-                    <td>A</td>
-                  </tr>
+                  <?php $no++; endforeach; ?>
                   
                   </tfoot>
                 </table>
