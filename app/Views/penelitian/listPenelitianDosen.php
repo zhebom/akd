@@ -1,57 +1,65 @@
 <div class="card">
               <div class="card-header">
                 <!-- <h3 class="card-title">Daftar Sertifikasi BNSP</h3> -->
-                <a href="<?= base_url('pengabdian/reportPengabdian'); ?>" type="button" class="btn btn-primary">Tambah Laporan Pengabdian</a>
+                <a href="<?= base_url('penelitian/reportPenelitian'); ?>" type="button" class="btn btn-primary">Tambah Laporan Penelitian</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              <?= session()->getFlashdata('msg') ?>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>No</th>
+                    <th>Tridharma</th>
+                    <th>Judul Laporan</th>
+                    <th>Sumber Dana</th>
+                    <th>Jumlah Dana(Rp)</th>
+                    <th>Skala</th>
+                    <th>Tahun</th>
+                    <th>Bukti</th>
+                    <th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
+                  <?php
+                  $no = 1;
+                  foreach ($laporan as $l):?>
+                  
+                  
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                    <td><?= $no; ?>
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
+                    <td><?= $l->kd_tridharma; ?>
+                    
                     </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
+                    <td><?= $l->judul; ?>
                     </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 6
+                    <td><?= $l->sumber; ?>
                     </td>
-                    <td>Win 98+</td>
-                    <td>6</td>
-                    <td>A</td>
+                    <td><?= number_format($l->dana); ?>
+                    </td>
+                    <td><?= $l->skala; ?>
+                    </td>
+                    <td><?= $l->tahun; ?>
+                    </td>
+                    <td><a href="<?= base_url('laporanDosen/'.$l->file);?>
+                    " target="_blank" rel="noopener noreferrer" class="btn btn-success">Bukti</a>
+                    </td>
+                    <td>
+                    <form action="<?= base_url('deleteLaporan/'.$l->id.'/'.$l->kd_tridharma);?>"
+                      
+                      method="post">
+                       <input type="hidden" name="_method" value="DELETE">
+                       <button type="submit" class="btn btn-danger">Delete</button>
+                     </form>
+  
+
+                    </td>
                   </tr>
+                  <?php 
+                  
+                  $no++;
+                endforeach;?>
                   
                   </tfoot>
                 </table>

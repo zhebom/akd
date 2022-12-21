@@ -31,7 +31,7 @@
                     <td><?= $q->universitas; ?></td>
                     <td><?= $q->tahun; ?></td>
                     <td><a href="<?= base_url(('profilDosen/').$q->file);?>
-                    " class="btn btn-warning"> bukti </a></td>
+                    " class="btn btn-success"> bukti </a></td>
                     <td>
                       <form action="<?= base_url('dosen/delete/'.$q->id);?>"
                       
