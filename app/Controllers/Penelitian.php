@@ -254,6 +254,99 @@ class Penelitian extends BaseController
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Laporan Berhasil Dihapus</div>');
        return redirect()->to(base_url($akhir));
     }
+
+    public function addLuaranDosen()
+    {
+       
+      if (!$this->validate(
+        [      
+            'tridharma' => 'required',     
+            'judul' => 'required', 
+            'link' => 'required',            
+            'sumber' => 'required',
+            'dana' => 'required',
+            'tahun' => 'required',
+            'skala' => 'required',
+           
+            'pdfku' => 'uploaded[pdfku]|ext_in[pdfku,pdf]'
+                             ],
+        [            
+            'tridharma' => [ 
+                'required' => 'Tridharma harus diisi'
+            ],
+            'judul' => [ 
+                'required' => 'Judul harus diisi'
+            ],
+            'link' => [ 
+                'required' => 'Link harus diisi'
+            ],
+            'sumber' => [ 
+                'required' => 'Sumber dana harus diisi'
+            ],
+            
+            'dana' => [ 
+                'required' => 'Dana harus diisi'
+            ],
+            'tahun' => [ 
+                'required' => 'Tahun harus diisi'
+            ],
+            'skala' => [ 
+                'required' => 'Skala harus diisi'
+            ],
+            'pdfku' => [
+                'uploaded' => 'lho kok belum upload',
+                'ext_in' => 'PDF lho bukan yang lain'
+            ]
+
+           
+            ]
+    )) {
+        
+        session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+        return redirect()->to(base_url('penelitian/reportJurnal'))->withinput();
+    
+        }
+        $td = $this->request->getVar('tridharma');
+        
+        $today = date("Y-m-d H:i:s");
+        $LaporanModel = new LuaranModel();
+        $filePend = $this->request->getFile('pdfku');
+       
+        $filePend->move('luaranDosen');
+        $namaFile = $filePend->getName();
+        $LaporanModel->save([
+          
+            
+            'id_dosen' => session()->get('id_dosen'),
+            'kd_tridharma' => $this->request->getVar('tridharma'),
+            'judul' => $this->request->getVar('judul'),
+            'link' => $this->request->getVar('link'),
+            'sumber' => $this->request->getVar('sumber'),
+            'dana' => $this->request->getVar('dana'),
+            'skala' => $this->request->getVar('skala'),
+            'tahun' => $this->request->getVar('tahun'),
+            'file' => $namaFile,
+            'created_at' => $today
+ 
+        ]);
+        
+              
+        if ($td == 'penelitian')
+        
+        {
+    
+       
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Laporan Penelitian Berhasil Ditambah</div>');
+        return redirect()->to(base_url('penelitian/reportJurnal'));
+    } else 
+    {
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Laporan Pengabdian Berhasil Ditambah</div>');
+        // return redirect()->to(base_url('pengabdian/reportPengabdian'));
+        return redirect()->to(base_url('pengabdian/reportJurnalPengabdian'));
+    }
+
+    }
+
     public function delLuaranDosen($id,$tujuan)
     {
         

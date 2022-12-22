@@ -53,7 +53,7 @@ $routes->get('/penelitian/rekognisiPenelitianDosen', 'Penelitian::listRekognisiP
 $routes->get('/penelitian/listPenelitianDosen', 'Penelitian::listPenelitianDosen', ['filter' => 'auth']);
 $routes->get('/penelitian/listJurnalDosen', 'Penelitian::listJurnalDosen', ['filter' => 'auth']);
 $routes->post('/addLaporan', 'Penelitian::addLaporanDosen', ['filter' => 'auth']);
-$routes->post('/addLuaran', 'Penelitian::addJurnalDosen', ['filter' => 'auth']);
+$routes->post('/addLuaran', 'Penelitian::addLuaranDosen', ['filter' => 'auth']);
 
 
 $routes->get('/pengabdian/rekognisi', 'Pengabdian::rekognisi', ['filter' => 'auth']);
