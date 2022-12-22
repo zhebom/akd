@@ -1,7 +1,7 @@
 <div class="card">
               <div class="card-header">
                 <!-- <h3 class="card-title">Daftar Sertifikasi BNSP</h3> -->
-                <a href="<?= base_url('pendidikan/rekognisi'); ?>" type="button" class="btn btn-primary">Tambah Rekognisi Penelitian</a>
+                <a href="<?= base_url('penelitian/rekognisi'); ?>" type="button" class="btn btn-primary">Tambah Rekognisi Penelitian</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

@@ -9,6 +9,17 @@
               <!-- form start -->
               <form>
                 <div class="card-body">
+                <div class="form-group">
+                        <label>Tridharma</label>
+                        <select class="form-control" id="tridharma" name="tridharma" >
+                          <option value="">-- Pilih Jenis --</option>
+                          
+                          <option value="penelitian">Penelitian</option>
+                          <option value="pengabdian">Pengabdian kepada Masyarakat</option>
+                        
+                        </select>
+                     
+                  </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Judul Luaran Penelitian</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Judul Luaran Penelitian">

@@ -63,8 +63,7 @@ class Pengabdian extends BaseController
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
             'nidn_dosen' => session()->get('nidn_dosen'),
-            'validasi' => $validasi,
-            'laporan' => $laporan
+            'validasi' => $validasi
         ];
 
         echo view('section/head',$data);
