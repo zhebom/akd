@@ -69,7 +69,8 @@
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          'Chrome',
+
+          'mozila',
           'IE',
           'FireFox',
           'Safari',
