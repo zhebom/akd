@@ -99,13 +99,6 @@
                   <p>Sertifikat Profesi</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?= base_url('dosen/listBnspDosen');?>
-                " class="nav-link <?php if($parentMenu == 'riwayatBnspDosen'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sertifikat BNSP</p>
-                </a>
-              </li>
               
             </ul>
           </li>

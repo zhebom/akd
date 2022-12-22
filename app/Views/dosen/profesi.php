@@ -13,11 +13,11 @@
               <strong><?= session()->getFlashdata('msg') ?></strong>
                   <div class="form-group">
                     <label for="penyelenggara" >Penyelenggara</label>
-                    <input type="text" class="form-control" id="penyelenggara" name="penyelenggara"  placeholder="Misal : BNSP, atau lainnya">
+                    <input type="text" class="form-control" id="penyelenggara" name="penyelenggara"  placeholder="Misal : BNSP, atau lainnya" value="<?= old('penyelenggara'); ?>">
                   </div>
                   <div class="form-group">
                     <label for="kompetensi">Kompetensi / Gelar Yang Didapat</label>
-                    <input type="text" class="form-control" id="kompetensi" name="kompetensi"placeholder="Kompetensi / Gelar">
+                    <input type="text" class="form-control" id="kompetensi" name="kompetensi" placeholder="Kompetensi / Gelar" value="<?= old('kompetensi'); ?>">
                   </div>
                   <div class="form-group">
                     <label for="date">Berlaku Hingga</label>

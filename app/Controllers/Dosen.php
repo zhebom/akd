@@ -129,6 +129,10 @@ class Dosen extends BaseController
 
     public function listProfesi()
     {
+        $id_dosen = session()->get('id_dosen');
+        $riwProfesiModel = new RiwProfesiModel();
+        $profesi = $riwProfesiModel->query("SELECT * FROM riwprofesi_dosen WHERE id_dosen = $id_dosen ORDER BY berlaku ASC")->getResult();
+        
         $data = [
             'title' => 'Daftar Sertifikasi Profesi',
             'mainMenu' => 'Dosen',
@@ -136,7 +140,8 @@ class Dosen extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'profesi' => $profesi
         ];
 
 
@@ -263,8 +268,8 @@ class Dosen extends BaseController
     {
         $riwPendModel = new RiwPendModel();
         $riwPendModel->delete($id);
-        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Pendidikan Berhasil Dihapus</div>');
-       return redirect()->to(base_url('/dosen/listPendidikanDosen'));
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Rekognisi Berhasil Dihapus</div>');
+       return redirect()->to(base_url('/pendidikan/listPendidikanDosen'));
     }
    
 
@@ -393,5 +398,12 @@ class Dosen extends BaseController
         $validasi =  \Config\Services::validation();
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Profesi Berhasil Ditambah</div>');
         return redirect()->to(base_url('/dosen/riwayatProfesiDosen'));
+    }
+    public function delProfesiDosen($id)
+    {
+        $riwProfesiModel = new RiwProfesiModel();
+        $riwProfesiModel->delete($id);
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Profesi Berhasil Dihapus</div>');
+       return redirect()->to(base_url('/dosen/listProfesiDosen'));
     }
 }

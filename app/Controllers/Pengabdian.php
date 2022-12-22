@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\RekognisiModel;
+use App\Models\LaporanModel;
+use App\Models\LuaranModel;
 class Pengabdian extends BaseController
 {
     public function rekognisi()
@@ -25,15 +27,22 @@ class Pengabdian extends BaseController
 
     public function rekognisiPengabdianDosen()
     {
+        $pdd = 'pengabdian';
+        $id_dosen = session()->get('id_dosen');
+        $RekognisiModel = new RekognisiModel();
+        $rekognisi = $RekognisiModel->query("SELECT * FROM rekognisi_dosen WHERE id_dosen = $id_dosen AND kd_tridharma = '$pdd' ORDER BY tahun DESC ")->getResult();
+        
+        $validasi =  \Config\Services::validation();
         $data = [
-            'title' => 'Daftar Rekognisi Pengabdian',
+            'title' => 'Daftar Rekognisi Pengabdian', 
             'mainMenu' => 'Pengabdian',
             'parentMenu' => 'rekognisiPengabdian',
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
-            
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'rekognisi' => $rekognisi,
+            'validasi'=>$validasi
         ];
 
         echo view('section/head',$data);
@@ -44,6 +53,8 @@ class Pengabdian extends BaseController
 
     public function reportpengabdian()
     {
+       
+        $validasi =  \Config\Services::validation();
         $data = [
             'title' => 'Laporan Pengabdian',
             'mainMenu' => 'Pengabdian',
@@ -51,17 +62,27 @@ class Pengabdian extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'validasi' => $validasi,
+            'laporan' => $laporan
         ];
 
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
-        echo view('pengabdian/reportpengabdian',$data);
+        // echo view('penelitian/reportPenelitian',$data);
+        echo view('penelitian/reportPenelitian',$data);
         echo view('section/foot',$data);
     }
 
     public function listPengabdianDosen()
     {
+        $pdd = 'pengabdian';
+        $id_dosen = session()->get('id_dosen');
+        $LaporanModel = new LaporanModel();
+        $laporan = $LaporanModel->query("SELECT * FROM laporan_dosen WHERE id_dosen = $id_dosen AND kd_tridharma = '$pdd' ORDER BY tahun DESC ")->getResult();
+        
+        
+        $validasi =  \Config\Services::validation();
         $data = [
             'title' => 'Daftar Pengabdian Dosen',
             'mainMenu' => 'Pengabdian',
@@ -69,7 +90,9 @@ class Pengabdian extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'validasi' => $validasi,
+            'laporan' => $laporan
             
         ];
 
@@ -81,6 +104,7 @@ class Pengabdian extends BaseController
 
     public function reportJurnal()
     {
+        $validasi =  \Config\Services::validation();
         $data = [
             'title' => 'Jurnal Pengabdian',
             'mainMenu' => 'Pengabdian',
@@ -88,17 +112,24 @@ class Pengabdian extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'validasi' => $validasi
         ];
 
         echo view('section/head',$data);
         echo view('section/sidebar',$data);
-        echo view('pengabdian/reportJurnal',$data);
+        echo view('penelitian/reportJurnal',$data);
         echo view('section/foot',$data);
     }
 
     public function listJurnalPengabdian()
     {
+
+        $pdd = 'pengabdian';
+        $id_dosen = session()->get('id_dosen');
+        $validasi =  \Config\Services::validation();
+        $LuaranModel = new LuaranModel();
+        $LuaranModel = $LuaranModel->query("SELECT * FROM luaran_dosen WHERE id_dosen = $id_dosen AND kd_tridharma = '$pdd' ORDER BY tahun DESC ")->getResult();
         $data = [
             'title' => 'Daftar Jurnal Dosen',
             'mainMenu' => 'Pengabdian',
@@ -106,7 +137,9 @@ class Pengabdian extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen')
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'validasi' => $validasi,
+            'luaran' => $LuaranModel
             
         ];
 

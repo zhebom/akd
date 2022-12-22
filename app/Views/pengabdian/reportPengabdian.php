@@ -10,7 +10,7 @@
               <form>
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Judul Pengabdian</label>
+                    <label for="exampleInputEmail1">Judul </label>
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Judul Pengabdian">
                   </div>
                   <div class="form-group">
