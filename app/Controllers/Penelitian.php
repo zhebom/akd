@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\RekognisiModel;
+use App\Models\LaporanModel;
+use App\Models\LuaranModel;
 class Penelitian extends BaseController
 {
     public function rekognisi()
@@ -24,6 +26,12 @@ class Penelitian extends BaseController
 
     public function listRekognisiPenelitian()
     {
+        $pdd = 'penelitian';
+        $id_dosen = session()->get('id_dosen');
+        $RekognisiModel = new RekognisiModel();
+        $rekognisi = $RekognisiModel->query("SELECT * FROM rekognisi_dosen WHERE id_dosen = $id_dosen AND kd_tridharma = '$pdd' ORDER BY tahun DESC ")->getResult();
+        
+        $validasi =  \Config\Services::validation();
         $data = [
             'title' => 'Daftar Rekognisi Penelitian',
             'mainMenu' => 'Penelitian',
@@ -142,5 +150,20 @@ class Penelitian extends BaseController
         echo view('section/sidebar',$data);
         echo view('penelitian/listJurnalDosen',$data);
         echo view('section/foot',$data);
+    }
+
+    public function delLaporanDosen($id,$tujuan)
+    {
+        
+      if ($tujuan == 'pengabdian')
+        {
+            $akhir = 'pengabdian/listPengabdianDosen';
+        } 
+        if ($tujuan == 'penelitian') 
+        {$akhir = 'penelitian/listPenelitianDosen';} 
+        $riwLaporanModel = new LaporanModel();
+        $riwLaporanModel->delete($id);
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Laporan Berhasil Dihapus</div>');
+       return redirect()->to(base_url($akhir));
     }
 }

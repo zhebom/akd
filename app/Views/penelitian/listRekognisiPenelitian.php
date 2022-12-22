@@ -27,14 +27,18 @@
                     <td><?= $no; ?></td>
                     <td><?= $r->kd_tridharma; ?>
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
+                    <td><?= $r->rekognisi; ?></td>
+                    <td><?= $r->oleh; ?></td>
+                    <td><?= $r->skala; ?></td>
+                    <td><?= $r->tahun; ?></td>
+                    <td><a class="btn btn-success" href="<?= base_url('rekognisiDosen/'.$r->file); ?>" target="_blank" >Bukti</a></td>
+                    <td>
+                    <form action="<?= base_url('rekognisi/deleteRekognisi/'.$r->id.'/'.$r->kd_tridharma);?>"
+                      
+                      method="post">
+                       <input type="hidden" name="_method" value="DELETE">
+                       <button type="submit" class="btn btn-danger">Delete</button>
+                     </form>
                     </td>
                   </tr>
                  <?php 

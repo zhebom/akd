@@ -12,9 +12,9 @@
                 <?= $validasi->listErrors(); ?>
                 <strong><?= session()->getFlashdata('msg') ?></strong>
                 <div class="form-group">
-                        <label>Laporan</label>
+                        <label>Tridharma</label>
                         <select class="form-control" id="tridharma" name="tridharma" >
-                          <option value="">-- Pilih Jenis Laporan --</option>
+                          <option value="">-- Pilih Jenis --</option>
                           
                           <option value="penelitian">Penelitian</option>
                           <option value="pengabdian">Pengabdian kepada Masyarakat</option>
