@@ -155,7 +155,7 @@
                 <a href="<?= base_url('penelitian/listJurnalDosen');?>
                 " class="nav-link <?php if($parentMenu == 'reportJurnalPenelitian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Jurnal</p>
+                  <p>Luaran</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -188,7 +188,7 @@
                 <a href="<?= base_url('pengabdian/listJurnalPengabdian');?>
                 " class="nav-link <?php if($parentMenu == 'reportJurnalPengabdian'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Jurnal</p>
+                  <p>Luaran</p>
                 </a>
               </li>
               <li class="nav-item">

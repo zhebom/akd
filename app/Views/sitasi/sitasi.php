@@ -26,26 +26,30 @@
                     <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                       <div class="form-group">
                         <label for="exampleInputEmail1">ID Google Scholar</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="ID Google Scholar">
+                        <input type="text" class="form-control" id="gs" name="gs" placeholder="ID Google Scholar">
                       </div>
                       
-                      <button class="btn btn-primary" onclick="stepper.next()">Next</button>
+                      <button class="btn btn-primary" onclick="stepper.next()" id="cari">Next</button>
                     </div>
                     <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                      <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                          </div>
-                          <div class="input-group-append">
-                            <span class="input-group-text">Upload</span>
-                          </div>
-                        </div>
+                      <div class="form-group" id="container">
+                        <table border="1">
+                          <thead>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                            <td>a</td>
+                          </thead>
+                          <tbody >
+                          <td>d</td>
+                          <td>d</td>
+                          <td>d</td>
+                          <td>d</td>
+                          </tbody>
+                        </table>
                       </div>
                       <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      
                     </div>
                   </div>
                 </div>

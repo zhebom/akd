@@ -1,12 +1,4 @@
-<?php  foreach($label as $l):
-        echo "'$l->kd_tridharma'";
-        echo ",";
-        
-        endforeach; ?>
 
-
-         
- </div>
   <!-- /.content-wrapper -->
 <footer class="main-footer">
     <strong>Copyright &copy; Fakultas Ekonomi & Bisnis Universitas Pancasakti Tegal</strong>
@@ -67,20 +59,44 @@
 <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script>
+var gsid = document.getElementById('gs');
+      var cari = document.getElementById('cari');
+      var container = document.getElementById('container');
 
+      cari.addEventListener('click', 
+      function (){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+          if (xhr.readyState == 4 && xhr.status == 200){
+            container.innerHTML = xhr.responseText;
+          }
+        }
+
+          xhr.open('GET', 'gs/googlescholar.php?user='+gsid.value, true);
+          xhr.send();
+
+      }
+      );
+
+</script>
 <script>
   
 //-------------
     //- DONUT CHART -
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
-    
+   
     function getKategori(){
       const ajax = new XMLHttpRequest();
+      
       // const data = JSON.parse(ajax.responseText);
       // ajax.onload = function(){
       //   tampilLabels(data);
       // }
+
+     
+      console.log(aku);
         $.ajax({
 
           url: '<?= site_url(); ?>/json_label',
@@ -131,11 +147,11 @@
     
     var donutData        = {
       labels: [
-        <?php  foreach($label as $l):
+      <?php  if(isset($label)){foreach($label as $l):
         echo "'$l->kd_tridharma'";
         echo ",";
         
-        endforeach; ?>
+        endforeach; }?>
         
       ],
       datasets: [

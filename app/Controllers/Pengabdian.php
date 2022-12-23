@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\RekognisiModel;
+use App\Models\LaporanModel;
+use App\Models\LuaranModel;
 class Pengabdian extends BaseController
 {
     public function rekognisi()
