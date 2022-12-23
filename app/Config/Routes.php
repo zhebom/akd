@@ -36,12 +36,18 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index', ['filter' => 'auth']);
+$routes->get('/json_label', 'Home::json_label', ['filter' => 'auth']);
+$routes->get('/json_count', 'Home::json_count', ['filter' => 'auth']);
 $routes->get('/login', 'Auth::login', ['filter' => 'authTamu']);
 $routes->get('/pendidikan/rekognisi', 'Pendidikan::rekognisi', ['filter' => 'auth']);
 $routes->get('/pendidikan/rekognisiPendidikanDosen', 'Pendidikan::listRekognisiPendidikan', ['filter' => 'auth']);
 $routes->post('/rekognisi/addRekognisiDosen', 'Pendidikan::addRekognisiDosen', ['filter' => 'auth']);
 $routes->delete('/rekognisi/deleteRekognisi/(:any)', 'Pendidikan::delRekognisiDosen/$1', ['filter' => 'auth']);
 $routes->delete('/deleteLaporan/(:any)', 'Penelitian::delLaporanDosen/$1', ['filter' => 'auth']);
+$routes->delete('/deleteLuaran/(:any)', 'Penelitian::delLuaranDosen/$1', ['filter' => 'auth']);
+
+$routes->get('/pendidikan/rekognisi', 'Pendidikan::rekognisi', ['filter' => 'auth']);
+$routes->get('/pendidikan/rekognisiPendidikanDosen', 'Pendidikan::listRekognisiPendidikan', ['filter' => 'auth']);
 $routes->get('/penelitian/rekognisi', 'Penelitian::rekognisi', ['filter' => 'auth']);
 $routes->get('/penelitian/reportPenelitian', 'Penelitian::reportPenelitian', ['filter' => 'auth']);
 $routes->get('/penelitian/reportJurnal', 'Penelitian::reportJurnal', ['filter' => 'auth']);
@@ -49,6 +55,8 @@ $routes->get('/penelitian/rekognisiPenelitianDosen', 'Penelitian::listRekognisiP
 $routes->get('/penelitian/listPenelitianDosen', 'Penelitian::listPenelitianDosen', ['filter' => 'auth']);
 $routes->get('/penelitian/listJurnalDosen', 'Penelitian::listJurnalDosen', ['filter' => 'auth']);
 $routes->post('/addLaporan', 'Penelitian::addLaporanDosen', ['filter' => 'auth']);
+$routes->post('/addLuaran', 'Penelitian::addLuaranDosen', ['filter' => 'auth']);
+
 
 $routes->get('/pengabdian/rekognisi', 'Pengabdian::rekognisi', ['filter' => 'auth']);
 $routes->get('/pengabdian/reportPengabdian', 'Pengabdian::reportPengabdian', ['filter' => 'auth']);
@@ -78,7 +86,7 @@ $routes->post('/dosen/addProfesiDosen', 'Dosen::addProfesiDosen', ['filter' => '
 $routes->delete('/dosen/delete/(:num)/', 'Dosen::delPendidikanDosen/$1', ['filter' => 'auth']);
 $routes->delete('/dosen/deleteJafa/(:num)', 'Dosen::delJafaDosen/$1', ['filter' => 'auth']);
 $routes->delete('/dosen/deleteProfesi/(:num)', 'Dosen::delProfesiDosen/$1', ['filter' => 'auth']);
-
+$routes->delete('/deleteLaporan/(:any)', 'Penelitian::delLaporanDosen/$1', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

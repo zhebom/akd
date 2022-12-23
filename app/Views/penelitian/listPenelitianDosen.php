@@ -1,3 +1,4 @@
+<div class="content">
 <div class="card">
               <div class="card-header">
                 <!-- <h3 class="card-title">Daftar Sertifikasi BNSP</h3> -->
@@ -65,4 +66,5 @@
                 </table>
               </div>
               <!-- /.card-body -->
+            </div>
             </div>

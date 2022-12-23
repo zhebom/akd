@@ -1,4 +1,11 @@
+<?php  foreach($label as $l):
+        echo "'$l->kd_tridharma'";
+        echo ",";
+        
+        endforeach; ?>
 
+
+         
  </div>
   <!-- /.content-wrapper -->
 <footer class="main-footer">
@@ -62,23 +69,81 @@
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <script>
+  
 //-------------
     //- DONUT CHART -
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
+    
+    function getKategori(){
+      const ajax = new XMLHttpRequest();
+      // const data = JSON.parse(ajax.responseText);
+      // ajax.onload = function(){
+      //   tampilLabels(data);
+      // }
+        $.ajax({
+
+          url: '<?= site_url(); ?>/json_label',
+         
+          method: 'GET',
+          dataType : 'json',
+          success: function(data){
+            console.log(data);
+            var baris ='';
+            for( var i=0;i<data.length;i++){
+             data[i]['kd_tridharma'];
+              console.log(data[i]['kd_tridharma']);
+            }
+          
+          }
+        });
+
+     
+    //   
+    //   ajax.open('GET', url);
+    //   ajax.send();
+      
+    //  console.log(ajax.responseText);
+     
+    }
+    
+       function getCount(){
+      const ajax = new XMLHttpRequest();
+      // const data = JSON.parse(ajax.responseText);
+      // ajax.onload = function(){
+      //   tampilLabels(data);
+      // }
+        $.ajax({
+
+          url: '<?= site_url(); ?>/json_count',
+         
+          method: 'GET',
+          
+          success: function(d){
+            console.log(d);
+            
+          }
+        });
+       }
+   //getKategori();
+
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    
     var donutData        = {
       labels: [
-          'Chrome',
-          'IE',
-          'FireFox',
-          'Safari',
-          'Opera',
-          'Navigator',
+        <?php  foreach($label as $l):
+        echo "'$l->kd_tridharma'";
+        echo ",";
+        
+        endforeach; ?>
+        
       ],
       datasets: [
         {
-          data: [700,500,400,600,300,100],
+          data: [
+           
+         500,400,600,300,100
+          ],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
         }
       ]

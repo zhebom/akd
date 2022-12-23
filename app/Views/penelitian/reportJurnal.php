@@ -7,40 +7,56 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="<?= base_url('addLuaran'); ?>" method="post" enctype="multipart/form-data">
                 <div class="card-body">
+                <?= $validasi->listErrors(); ?>
+                <strong><?= session()->getFlashdata('msg') ?></strong>
+                
+                <div class="form-group">
+                        <label>Tridharma</label>
+                        <select class="form-control" id="tridharma" name="tridharma" >
+                          <option value="">-- Pilih Jenis --</option>
+                          
+                          <option value="penelitian">Penelitian</option>
+                          <option value="pengabdian">Pengabdian kepada Masyarakat</option>
+                        
+                        </select>
+                     
+                  </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Judul Luaran Penelitian</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Judul Luaran Penelitian">
+                    <input type="text" class="form-control" placeholder="Masukkan Judul Luaran Penelitian" id="judul" name="judul">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Link Luaran Penelitian</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Link Luaran Penelitian">
+                    <input type="text" class="form-control"  placeholder="Masukkan Link Luaran Penelitian" id="link" name="link">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Sumber Dana</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Didanai Oleh">
+                    <input type="text" class="form-control"  placeholder="Didanai Oleh" id="sumber" name="sumber">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Total Dana </label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Total Dana Penelitian">
+                    <input type="text" class="form-control"  placeholder="Total Dana Penelitian" id="dana" name="dana">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Tahun</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Pada Tahun">
+                    <input type="text" class="form-control"  placeholder="Pada Tahun" id="tahun" name="tahun">
                   </div>
                    
                   <div class="form-group">
                     <!-- select -->
                     
-                        <label>Skala</label>
-                        <select class="form-control">
-                          <option>Jurnal Nasional</option>
-                          <option>Jurnal Nasional Terakreditasi</option>
-                          <option>Jurnal Internasional</option>
-                          <option>Jurnal Internasional Bereputasi</option>
-                          <option>Seminar Nasional</option>
-                          <option>Seminar Internasional</option>
+                        <label>Kategori</label>
+                        <select class="form-control" id="skala" name="skala">
+                          
+                          <option value="">-- Pilih Kategori --</option>
+                          <option value="Jurnal Nasional">Jurnal Nasional</option>
+                          <option value="Jurnal Nasional Terakreditasi">Jurnal Nasional Terakreditasi</option>
+                          <option value="Jurnal Internasional">Jurnal Internasional</option>
+                          <option value="Jurnal Internasional Bereputasi">Jurnal Internasional Bereputasi</option>
+                          <option value="Seminar Nasional">Seminar Nasional</option>
+                          <option value="Seminar Internasional">Seminar Internasional</option>
                         
                         </select>
                      
@@ -49,12 +65,10 @@
                     <label for="exampleInputFile">Upload Luaran dalam 1 File PDF</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <input type="file" class="custom-file-input" id="pdfku" name="pdfku">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
+                     
                     </div>
                   </div>
                  
