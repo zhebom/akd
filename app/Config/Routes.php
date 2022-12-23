@@ -36,6 +36,8 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index', ['filter' => 'auth']);
+$routes->get('/json_label', 'Home::json_label', ['filter' => 'auth']);
+$routes->get('/json_count', 'Home::json_count', ['filter' => 'auth']);
 $routes->get('/login', 'Auth::login', ['filter' => 'authTamu']);
 $routes->get('/pendidikan/rekognisi', 'Pendidikan::rekognisi', ['filter' => 'auth']);
 $routes->get('/pendidikan/rekognisiPendidikanDosen', 'Pendidikan::listRekognisiPendidikan', ['filter' => 'auth']);

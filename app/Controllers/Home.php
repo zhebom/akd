@@ -16,9 +16,14 @@ class Home extends BaseController
         $query = $riwPendModel->query("SELECT tingkat, jurusan FROM riwpendidikan_dosen WHERE id_dosen = $id_dosen ORDER BY tahun DESC")->getFirstRow();
         $jafa = $riwJafaModel->query("SELECT jafa_dosen FROM riwjafa_dosen WHERE id_dosen = $id_dosen ORDER BY tahun DESC")->getFirstRow();
         $profesi = $riwProfesiModel->query("SELECT id FROM riwprofesi_dosen WHERE id_dosen = $id_dosen")->getResult();
-        $label = $LuaranModel->query("SELECT kd_tridharma FROM luaran_dosen WHERE id_dosen = $id_dosen GROUP BY kd_tridharma")->getResult();
-        $data = $LuaranModel->query("SELECT kd_tridharma FROM luaran_dosen WHERE id_dosen = $id_dosen GROUP BY kd_tridharma")->getResult();
+        $label = $LuaranModel->query("SELECT kd_tridharma FROM luaran_dosen WHERE id_dosen = $id_dosen GROUP BY kd_tridharma ASC")->getResult();
+     
+        $data = $LuaranModel->query("SELECT COUNT(kd_tridharma) FROM luaran_dosen WHERE id_dosen = $id_dosen group by kd_tridharma ")->getResult();
+    //    $labeljson = json_encode($label);
+       $labeljson =$label;
+        $datas = $data;
        
+        
         $data = [
             'title' => 'Dashboard',
             'mainMenu' => 'Dashboard',
@@ -31,8 +36,8 @@ class Home extends BaseController
             'query' => $query,
             'jafa' => $jafa,
             'profesi' => $profesi,
-            'label' => $label,
-            'data' => $data
+            'label' =>$labeljson,
+            'data' => $datas
 
         
         ];
@@ -48,4 +53,20 @@ class Home extends BaseController
         $query = $riwPendModel->query("SELECT tingkat FROM riwpendidikan_dosen WHERE id_dosen = $id_dosen ORDER BY tahun ASC")->getResult();
     }
     
+    public function json_label(){
+        $id_dosen = session()->get('id_dosen');
+        $LuaranModel = new LuaranModel();
+        $label = $LuaranModel->query("SELECT * FROM luaran_dosen WHERE id_dosen = $id_dosen GROUP BY kd_tridharma")->getResult();
+         $a = json_encode($label);
+        
+         echo $a; 
+    }
+    public function json_count(){
+        $id_dosen = session()->get('id_dosen');
+        $LuaranModel = new LuaranModel();
+        $label = $LuaranModel->query("SELECT kd_tridharma FROM luaran_dosen WHERE id_dosen = $id_dosen GROUP BY kd_tridharma")->getResult();
+         $a = count($label);
+        
+         echo $a; 
+    }
 }
