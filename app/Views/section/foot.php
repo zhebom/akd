@@ -1,12 +1,5 @@
-<?php  foreach($label as $l):
-        echo "'$l->kd_tridharma'";
-        echo ",";
-        
-        endforeach; ?>
 
 
-         
- </div>
   <!-- /.content-wrapper -->
 <footer class="main-footer">
     <strong>Copyright &copy; Fakultas Ekonomi & Bisnis Universitas Pancasakti Tegal</strong>
@@ -68,99 +61,7 @@
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-<script>
-  
-//-------------
-    //- DONUT CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    
-    function getKategori(){
-      const ajax = new XMLHttpRequest();
-      // const data = JSON.parse(ajax.responseText);
-      // ajax.onload = function(){
-      //   tampilLabels(data);
-      // }
-        $.ajax({
 
-          url: '<?= site_url(); ?>/json_label',
-         
-          method: 'GET',
-          dataType : 'json',
-          success: function(data){
-            console.log(data);
-            var baris ='';
-            for( var i=0;i<data.length;i++){
-             data[i]['kd_tridharma'];
-              console.log(data[i]['kd_tridharma']);
-            }
-          
-          }
-        });
-
-     
-    //   
-    //   ajax.open('GET', url);
-    //   ajax.send();
-      
-    //  console.log(ajax.responseText);
-     
-    }
-    
-       function getCount(){
-      const ajax = new XMLHttpRequest();
-      // const data = JSON.parse(ajax.responseText);
-      // ajax.onload = function(){
-      //   tampilLabels(data);
-      // }
-        $.ajax({
-
-          url: '<?= site_url(); ?>/json_count',
-         
-          method: 'GET',
-          
-          success: function(d){
-            console.log(d);
-            
-          }
-        });
-       }
-   //getKategori();
-
-    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    
-    var donutData        = {
-      labels: [
-        <?php  foreach($label as $l):
-        echo "'$l->kd_tridharma'";
-        echo ",";
-        
-        endforeach; ?>
-        
-      ],
-      datasets: [
-        {
-          data: [
-           
-         500,400,600,300,100
-          ],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-        }
-      ]
-    }
-    var donutOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(donutChartCanvas, {
-      type: 'doughnut',
-      data: donutData,
-      options: donutOptions
-    })
-
-</script>
 
 <script>
   $(function () {
@@ -183,6 +84,63 @@
     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
   })
 </script>
+<script>
+  
+//-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    
+   
+   //getKategori();
 
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    
+    var donutData        = {
+      labels: [
+        <?php 
+       
+         if (isset($total)){foreach($total as $l):
+         echo "'";
+         echo $l['kd_tridharma'];
+         echo "'";
+        echo ",";
+      
+      
+     endforeach;} 
+         ?>
+        // 'Penelitian',
+        // 'Pengabdian',
+      ],
+      datasets: [
+        {
+          data: [
+          
+            <?php 
+        if (isset($total)){foreach($total as $l):
+          echo $l['id'];
+          echo ",";
+         endforeach; }
+        
+         ?>
+        //  500,400,600,300,100
+          ],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })
+
+</script>
 </body>
 </html>
