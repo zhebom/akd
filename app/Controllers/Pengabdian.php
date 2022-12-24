@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\RekognisiModel;
-use App\Models\LaporanModel;
-use App\Models\LuaranModel;
+
 class Pengabdian extends BaseController
 {
     public function rekognisi()
@@ -62,8 +60,7 @@ class Pengabdian extends BaseController
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
-            'nidn_dosen' => session()->get('nidn_dosen'),
-            'validasi' => $validasi
+            'nidn_dosen' => session()->get('nidn_dosen')
         ];
 
         echo view('section/head',$data);

@@ -153,7 +153,6 @@ class Penelitian extends BaseController
         echo view('penelitian/listJurnalDosen',$data);
         echo view('section/foot',$data);
     }
-
     public function addLaporanDosen()
     {
        
