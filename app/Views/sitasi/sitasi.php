@@ -33,20 +33,7 @@
                     </div>
                     <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                       <div class="form-group" id="container">
-                        <table>
-                          <thead>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                          </thead>
-                          <tbody >
-                          <td>d</td>
-                          <td>d</td>
-                          <td>d</td>
-                          <td>d</td>
-                          </tbody>
-                        </table>
+                      
                       </div>
                       <button class="btn btn-primary" onclick="stepper.previous()">Previous</button>
                       

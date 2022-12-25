@@ -15,10 +15,15 @@ $html->load_file("http://scholar.google.se/citations?user=" . $_GET["user"]);
 // $s = " \"Data Sitasi Dosen\" ";
 $years = $html->find('.gsc_g_t');
 $scores = $html->find('.gsc_g_al');
+$nama = $html->find('.gsc_prf_in');
 $kepala = '';
-$kepala = " <table border='1'>
-	<tr>
-		<td>Tahun</td>
+$kepala = " 
+
+<table border='1' class='table table-bordered table-hover'>
+<thead>
+	<tr class='table-success'>
+	<th>Tahun</th>	
+	
 		
 	
 	
@@ -46,7 +51,8 @@ $kepala = " <table border='1'>
 	
 	</tr>
 	<tr>
-	<td>Sitasi</td>
+	
+	<th>Sitasi</th>
 	
 	";
 	echo $kepala2;
@@ -65,7 +71,7 @@ foreach($scores as $key => $score) {
 	
 
 	// $s .= "\n  \"" . trim($years[$key]->plaintext) ."\": ". trim($score->plaintext) . ",";
-}echo "</tr>";
+}echo "</tr></thead>";
 // print substr($s, 0, -1) . "\n },\n";
 
 
@@ -81,8 +87,9 @@ $kepala3 = " <br> <table border='1' class='table table-bordered table-hover'>
 		<th>Tahun Terbit</th>
 		</tr>
 	</thead>";
-	echo "Daftar Publikasi Dosen";
-	echo $kepala3;
+	
+	
+	//echo $kepala3;
 	$no =1;
 foreach($html->find("#gsc_a_t .gsc_a_tr") as $pub) {
 	$hai2 = '';
@@ -108,7 +115,7 @@ foreach($html->find("#gsc_a_t .gsc_a_tr") as $pub) {
 	// 	$str .= ",\n    \"year\": " . $pub->find(".gsc_a_h", 0)->plaintext;
 	// $str .= "\n  },";
 	$no++;
-	echo $hai2;
+	//echo $hai2;
 }
 
 // print substr($str, 0, -1) . "\n ]\n}";
