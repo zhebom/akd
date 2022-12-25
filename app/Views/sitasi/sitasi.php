@@ -33,7 +33,7 @@
                     </div>
                     <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                       <div class="form-group" id="container">
-                        <table border="1">
+                        <table>
                           <thead>
                             <td>a</td>
                             <td>a</td>

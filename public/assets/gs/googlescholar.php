@@ -71,19 +71,24 @@ foreach($scores as $key => $score) {
 
 $str = " \"publications\": [";
 $kepala3 = '';
-$kepala3 = " <br> <table border='1'>
+$kepala3 = " <br> <table border='1' class='table table-bordered table-hover'>
 	<thead>
-		<td>Judul</td>
-		<td>Author</td>
-		<td>Sitasi</td>
-		<td>Tahun Terbit</td>
+	<tr class='table-success'>
+	<th>Nomor</th>	
+	<th>Judul</th>
+		<th>Author</th>
+		<th>Sitasi</th>
+		<th>Tahun Terbit</th>
+		</tr>
 	</thead>";
 	echo "Daftar Publikasi Dosen";
 	echo $kepala3;
+	$no =1;
 foreach($html->find("#gsc_a_t .gsc_a_tr") as $pub) {
 	$hai2 = '';
 	$hai2 .= 
-	" <tr>
+	" <tr class='table-warning'>
+		<td>".$no."</td>
 		<td>".trim($pub->find(".gsc_a_at", 0)->plaintext)."</td>
 		<td>".trim($pub->find(".gs_gray", 0)->plaintext)."</td>
 		<td>".$pub->find(".gsc_a_ac", 0)->plaintext."</td>
@@ -102,6 +107,7 @@ foreach($html->find("#gsc_a_t .gsc_a_tr") as $pub) {
 	// else
 	// 	$str .= ",\n    \"year\": " . $pub->find(".gsc_a_h", 0)->plaintext;
 	// $str .= "\n  },";
+	$no++;
 	echo $hai2;
 }
 
