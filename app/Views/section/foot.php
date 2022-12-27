@@ -1,5 +1,4 @@
-
-
+</div>
   <!-- /.content-wrapper -->
 <footer class="main-footer">
     <strong>Copyright &copy; Fakultas Ekonomi & Bisnis Universitas Pancasakti Tegal</strong>
@@ -61,29 +60,6 @@
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-
-
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-  })
-</script>
 <script>
   
 //-------------
@@ -91,26 +67,68 @@
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
     
-   
+    function getKategori(){
+      const ajax = new XMLHttpRequest();
+      // const data = JSON.parse(ajax.responseText);
+      // ajax.onload = function(){
+      //   tampilLabels(data);
+      // }
+        $.ajax({
+
+          url: '<?= site_url(); ?>/json_label',
+         
+          method: 'GET',
+          dataType : 'json',
+          success: function(data){
+            console.log(data);
+            var baris ='';
+            for( var i=0;i<data.length;i++){
+             data[i]['kd_tridharma'];
+              console.log(data[i]['kd_tridharma']);
+            }
+          
+          }
+        });
+
+     
+    //   
+    //   ajax.open('GET', url);
+    //   ajax.send();
+      
+    //  console.log(ajax.responseText);
+     
+    }
+    
+       function getCount(){
+      const ajax = new XMLHttpRequest();
+      // const data = JSON.parse(ajax.responseText);
+      // ajax.onload = function(){
+      //   tampilLabels(data);
+      // }
+        $.ajax({
+
+          url: '<?= site_url(); ?>/json_count',
+         
+          method: 'GET',
+          
+          success: function(d){
+            console.log(d);
+            
+          }
+        });
+       }
    //getKategori();
 
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     
     var donutData        = {
       labels: [
-        <?php 
-       
-         if (isset($total)){foreach($total as $l):
-         echo "'";
-         echo $l['kd_tridharma'];
-         echo "'";
+        <?php  foreach($label as $l):
+        echo "'$l->kd_tridharma'";
         echo ",";
-      
-      
-     endforeach;} 
-         ?>
-        // 'Penelitian',
-        // 'Pengabdian',
+        
+        endforeach; ?>
+        
       ],
       datasets: [
         {

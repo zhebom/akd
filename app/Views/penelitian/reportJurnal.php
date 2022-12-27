@@ -24,12 +24,12 @@
                      
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Judul Luaran Penelitian</label>
+                    <label for="exampleInputEmail1">Judul Luaran</label>
                     <input type="text" class="form-control" placeholder="Masukkan Judul Luaran Penelitian" id="judul" name="judul">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Link Luaran Penelitian</label>
-                    <input type="text" class="form-control"  placeholder="Masukkan Link Luaran Penelitian" id="link" name="link">
+                    <label for="exampleInputEmail1">Link Luaran</label>
+                    <input type="text" class="form-control"  placeholder="Masukkan Link Luaran / - (jika tidak ada)" id="link" name="link">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Sumber Dana</label>
@@ -37,11 +37,11 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Total Dana </label>
-                    <input type="text" class="form-control"  placeholder="Total Dana Penelitian" id="dana" name="dana">
+                    <input type="number" class="form-control"  placeholder="Total Dana " id="dana" name="dana">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Tahun</label>
-                    <input type="text" class="form-control"  placeholder="Pada Tahun" id="tahun" name="tahun">
+                    <input type="number" class="form-control"  placeholder="Pada Tahun" id="tahun" name="tahun">
                   </div>
                    
                   <div class="form-group">
@@ -51,6 +51,10 @@
                         <select class="form-control" id="skala" name="skala">
                           
                           <option value="">-- Pilih Kategori --</option>
+                          <option value="Media Cetak">Media Cetak</option>
+                          <option value="Media Online">Media Online</option>
+                          <option value="Buku Ajar">Buku Ajar</option>
+                          <option value="Buku">Buku</option>
                           <option value="Jurnal Nasional">Jurnal Nasional</option>
                           <option value="Jurnal Nasional Terakreditasi">Jurnal Nasional Terakreditasi</option>
                           <option value="Jurnal Internasional">Jurnal Internasional</option>
