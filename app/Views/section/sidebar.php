@@ -2,9 +2,9 @@
 
 
 <!-- Preloader -->
-        <!-- <div class="preloader flex-column justify-content-center align-items-center">
+        <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="dist/logo/ups.png" alt="ups" height="60" width="60">
-        </div> -->
+        </div>
  <!-- Navbar -->
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->

@@ -59,20 +59,58 @@
 <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script>
+var gsid = document.getElementById('gs');
+      var cari = document.getElementById('cari');
+      var container = document.getElementById('container');
 
+      cari.addEventListener('click', 
+      function (){
+        
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+          if (xhr.readyState == 4 && xhr.status == 200){
+            addGS();
+            container.innerHTML = xhr.responseText;
+          }
+        }
+
+          xhr.open('GET', 'gs/googlescholar.php?user='+gsid.value, true);
+          xhr.send();
+
+      }
+      );
+      function addGS(){
+        console.log(gs.value);
+          //var gs = document.getElementById('gs');
+          var xhr = new XMLHttpRequest();
+          // xhr.onreadystatechange = function(){
+          //   if (xhr.readyState == 4 && xhr.status == 200){
+
+          xhr.open('GET', '<?= base_url(); ?>/gs/addGS/'+gs.value, true);
+          xhr.send();
+
+      //       }
+      //     }
+      }
+</script>
 <script>
   
 //-------------
     //- DONUT CHART -
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
-    
+   
     function getKategori(){
       const ajax = new XMLHttpRequest();
+      
       // const data = JSON.parse(ajax.responseText);
       // ajax.onload = function(){
       //   tampilLabels(data);
       // }
+
+     
+      console.log(aku);
         $.ajax({
 
           url: '<?= site_url(); ?>/json_label',
@@ -123,25 +161,18 @@
     
     var donutData        = {
       labels: [
-        <?php  foreach($label as $l):
+      <?php  if(isset($label)){foreach($label as $l):
         echo "'$l->kd_tridharma'";
         echo ",";
         
-        endforeach; ?>
+        endforeach; }?>
         
       ],
       datasets: [
         {
           data: [
-          
-            <?php 
-        if (isset($total)){foreach($total as $l):
-          echo $l['id'];
-          echo ",";
-         endforeach; }
-        
-         ?>
-        //  500,400,600,300,100
+           
+         500,400,600,300,100
           ],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
         }
@@ -160,5 +191,28 @@
     })
 
 </script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+  })
+</script>
+
 </body>
 </html>

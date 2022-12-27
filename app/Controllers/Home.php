@@ -17,29 +17,11 @@ class Home extends BaseController
         $jafa = $riwJafaModel->query("SELECT jafa_dosen FROM riwjafa_dosen WHERE id_dosen = $id_dosen ORDER BY tahun DESC")->getFirstRow();
         $profesi = $riwProfesiModel->query("SELECT id FROM riwprofesi_dosen WHERE id_dosen = $id_dosen")->getResult();
         $label = $LuaranModel->query("SELECT kd_tridharma FROM luaran_dosen WHERE id_dosen = $id_dosen GROUP BY kd_tridharma ASC")->getResult();
-         
-        foreach ($label as $l):
-            // echo $l->kd_tridharma; 
-            // echo ",";
-            $no = 0;
-            $datas = $LuaranModel->query("SELECT * FROM luaran_dosen WHERE kd_tridharma = '$l->kd_tridharma' AND id_dosen = $id_dosen  ")->getResult();
-            
-            foreach ($datas as $d):
-                
-                
-                 
-                  
-                    $no++;
-                    
-                endforeach;
-                $total[] = array('kd_tridharma'=>$l->kd_tridharma, 'id'=>$no);
-                
-         endforeach;
-   
- 
+     
+        $data = $LuaranModel->query("SELECT COUNT(kd_tridharma) FROM luaran_dosen WHERE id_dosen = $id_dosen group by kd_tridharma ")->getResult();
     //    $labeljson = json_encode($label);
        $labeljson =$label;
-    
+        $datas = $data;
        
         
         $data = [
@@ -55,9 +37,7 @@ class Home extends BaseController
             'jafa' => $jafa,
             'profesi' => $profesi,
             'label' =>$labeljson,
-            'data' => $datas,
-            'total' => $total
-           
+            'data' => $datas
 
         
         ];

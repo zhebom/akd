@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\RiwPendModel;
 use App\Models\RiwJafaModel;
 use App\Models\RiwProfesiModel;
+use App\Models\GsModel;
 class Dosen extends BaseController
 {
     public function pendidikan()
@@ -406,4 +407,6 @@ class Dosen extends BaseController
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Profesi Berhasil Dihapus</div>');
        return redirect()->to(base_url('/dosen/listProfesiDosen'));
     }
+
+    
 }

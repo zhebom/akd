@@ -26,7 +26,9 @@
                     <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                       <div class="form-group">
                         <label for="exampleInputEmail1">ID Google Scholar</label>
-                        <input type="text" class="form-control" id="gs" name="gs" placeholder="ID Google Scholar">
+                        <input type="text" class="form-control" id="gs" name="gs" placeholder="ID Google Scholar" value="<?php foreach ($gs as $gs):
+                            echo $gs->gs_dosen;
+                        endforeach;?>">
                       </div>
                       
                       <button class="btn btn-primary" onclick="stepper.next()" id="cari">Next</button>

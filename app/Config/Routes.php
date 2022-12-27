@@ -67,6 +67,7 @@ $routes->get('/pengabdian/listPengabdianDosen', 'Pengabdian::listPengabdianDosen
 $routes->get('/pengabdian/listJurnalPengabdian', 'Pengabdian::listJurnalPengabdian', ['filter' => 'auth']);
 
 $routes->get('/gs/reportSitasi', 'Sitasi::index', ['filter' => 'auth']);
+$routes->get('/gs/addGS/(:any)', 'Sitasi::addGS/$1', ['filter' => 'auth']);
 
 $routes->get('/register', 'Auth::register');
 $routes->post('/addDosen', 'Auth::addDosen', ['filter' => 'auth']);
