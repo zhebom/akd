@@ -55,7 +55,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $d->nama_dosen; ?></h5>
                             
-                            <a href="#" class="btn btn-primary">Lihat Profil Dosen</a>
+                            <a href="<?= base_url('dosen/profil/'.$d->id_dosen); ?>" class="btn btn-primary">Lihat Profil Dosen</a>
                         </div>
                     
 

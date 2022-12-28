@@ -37,6 +37,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index', ['filter' => 'auth']);
 $routes->get('/home', 'Beranda::index');
+$routes->get('/dosen/profil/(:num)', 'Beranda::profil/$1');
 $routes->get('/json_label', 'Home::json_label', ['filter' => 'auth']);
 $routes->get('/json_count', 'Home::json_count', ['filter' => 'auth']);
 $routes->get('/login', 'Auth::login', ['filter' => 'authTamu']);

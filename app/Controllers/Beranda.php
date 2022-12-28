@@ -11,7 +11,7 @@ class Beranda extends BaseController
     public function index()
     {     
         $dosenModel = new DosenModel();
-        $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen FROM dosen_febups")->getResult();
+        $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen,id_dosen FROM dosen_febups")->getResult();
 
         $data = [
             'title' => 'Beranda',
@@ -24,4 +24,19 @@ class Beranda extends BaseController
         
     }
    
+    public function profil($id)
+    {     
+        $dosenModel = new DosenModel();
+        $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen,id_dosen FROM dosen_febups")->getResult();
+        $data = [
+            'title' => 'Profil Dosen',
+            'dosen' => $dosenModel
+          
+
+        ];
+
+        echo view('dosen/profile',$data);
+     
+        
+    }
 }
