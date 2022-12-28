@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Models\RiwPendModel;
 use App\Models\RiwJafaModel;
 use App\Models\RiwProfesiModel;
-use App\Models\GsModel;
+
 class Dosen extends BaseController
 {
     public function pendidikan()

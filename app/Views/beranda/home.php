@@ -45,22 +45,34 @@
         <section class="pt-4">
             <div class="container px-lg-5">
                 <!-- Page Features-->
-                <div class="card-group">
+                <div class="card-group" >
+               
+                <div class="row row-cols-1 row-cols-md-2 g-4">
                 <?php foreach ($dosen as $d): ?>
-                 <div class="card" href="#">
-                    <img src="..." class="card-img-top" alt="..." >
-                    <div class="card-body">
+                    <div class="col">
+                        <div class="card mt-1 mb-1">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $d->nama_dosen; ?></h5>
+                            
+                            <a href="#" class="btn btn-primary">Lihat Profil Dosen</a>
+                        </div>
+                    
 
-                    <h5 class="card-title"><a href="#" target="_blank" rel="noopener noreferrer"><?= $d->nama_dosen; ?></a></h5>
+                        </div>
+                    
                     </div>
-                 </div>
-                 <?php endforeach; ?>
+                   
+                <?php endforeach; ?>
+                  
+                    </div>
+                 
                 </div>
             </div>
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Fakultas Ekonomi dan Bisnis Universitas Pancasakti Tegal</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
