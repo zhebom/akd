@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\RiwPendModel;
 use App\Models\RiwJafaModel;
 use App\Models\RiwProfesiModel;
+use App\Models\DosenModel;
 
 class Dosen extends BaseController
 {
@@ -408,5 +409,92 @@ class Dosen extends BaseController
        return redirect()->to(base_url('/dosen/listProfesiDosen'));
     }
 
+    public function ProfilDosen()
+    {
+        $id_dosen = session()->get('id_dosen');
+        $dosen = new DosenModel();
+        $dosen = $dosen->query("SELECT * FROM dosen_febups where id_dosen = $id_dosen")->getResult();
+        
+        $data = [
+            'title' => 'Profil Dosen',
+            'mainMenu' => 'Dosen',
+            'parentMenu' => 'riwayatPendidikanDosen',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'dosen' => $dosen,
+            'validasi' => \Config\Services::validation()
+            
+            
+        ];
+
+        echo view('section/head',$data);
+        echo view('section/sidebar',$data);
+        echo view('dosen/profilDosen',$data);
+        echo view('section/foot',$data);
+    }
+
+    public function editDosen()
+    {
+        $id_dosen = session()->get('id_dosen');
+        $pass = $this->request->getVar('pass');
+        if ($pass){
+            // Jika Password terisi
+
+            if (!$this->validate(
+                [           
+                    
+                   
+                    'passconf' => 'matches[pass]',
+                ],
+                [            
+                   
+                   
+                    'passconf' => [
+                        'matches' => 'Password yang dimasukkan tidak sama',
+                    ]
+                    ]
+            )) {
+                
+                
+                $validasi =  \Config\Services::validation();
+                session()->setFlashdata('msg', 'Dosen gagal Dirubah');
+                return redirect()->to(base_url('/dosen'))->withinput();
+            
+                }
+                $today = date("Y-m-d H:i:s");
+                $dosenModel = new DosenModel();
+                $nama_dosen =  $this->request->getVar('name');
+                $email_dosen = $this->request->getVar('email');
+                $nidn_dosen = $this->request->getVar('nidn');
+                $pass_dosen = password_hash($pass, PASSWORD_DEFAULT);
+    
+                $dosenModel->query("UPDATE dosen_febups SET nama_dosen =  '$nama_dosen', email_dosen = '$email_dosen', nidn_dosen = '$nidn_dosen', created_at = '$today' , pass_dosen = '$pass_dosen' WHERE id_dosen = $id_dosen");
+                
+                $validasi =  \Config\Services::validation();
+                session()->setFlashdata('msg', 'Dosen Berhasil Dirubah');
+                return redirect()->to(base_url('/dosen'));
+            
+            
+        } else {
+            // Jika Password tidak terisi 
+
+            $today = date("Y-m-d H:i:s");
+            $dosenModel = new DosenModel();
+            $nama_dosen =  $this->request->getVar('name');
+            $email_dosen = $this->request->getVar('email');
+            $nidn_dosen = $this->request->getVar('nidn');
+
+            $dosenModel->query("UPDATE dosen_febups SET nama_dosen =  '$nama_dosen', email_dosen = '$email_dosen', nidn_dosen = '$nidn_dosen', created_at = '$today' WHERE id_dosen = $id_dosen");
+         
+            
+            $validasi =  \Config\Services::validation();
+            session()->setFlashdata('msg', 'Dosen Berhasil Diruibah');
+            return redirect()->to(base_url('/dosen'));
+        }
+    
+     
+    }
     
 }

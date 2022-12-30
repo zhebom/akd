@@ -18,11 +18,11 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-lg-5">
-                <a class="navbar-brand" href="#!">FEB UPS</a>
+                <a class="navbar-brand" href="<?= base_url(); ?>">FEB UPS</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= base_url('home'); ?>">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= base_url(); ?>">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('login'); ?>">Login</a></li>
                         
                     </ul>
@@ -34,8 +34,9 @@
             <div class="container px-lg-5">
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
-                        <h1 class="display-5 fw-bold">Pusat Data Dosen FEB UPS</h1>
-                        <p class="fs-4">Profil dosen berdasarkan kontribusi pendidikan dan pengajaran, penelitian, pengabdian kepada masyarkat yang ditampilkan melalui website sebagai Pusat Data yang dimiliki oleh Fakultas Ekonomi dan Bisnis Universitas Pancasakti Tegal</p>
+                        <h1 class="display-5 fw-bold">Pusat Data & Informasi Dosen FEB UPS</h1>
+                        <p class="fs-4">Profil dosen berdasarkan kontribusi pendidikan dan pengajaran, penelitian, pengabdian kepada masyarakat yang ditampilkan melalui website sebagai Pusat Data yang dimiliki oleh Fakultas Ekonomi dan Bisnis Universitas Pancasakti Tegal</p>
+                        
                         <a class="btn btn-primary btn-lg" href="<?= site_url('login'); ?>">Login sebagai Dosen</a>
                     </div>
                 </div>

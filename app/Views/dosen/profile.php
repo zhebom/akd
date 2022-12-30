@@ -24,11 +24,11 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-lg-5">
-                <a class="navbar-brand" href="#!">FEB UPS</a>
+                <a class="navbar-brand" href="<?= base_url(); ?>">FEB UPS</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= base_url('home'); ?>">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="<?= base_url(); ?>">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('login'); ?>">Login</a></li>
                         
                     </ul>
@@ -73,7 +73,7 @@
                     <strong><i class="fas fa-book mr-1"></i><?= $pdd->tingkat; ?></strong>
 
                     <p class="text-muted">
-                      Jurusan <?= $pdd->jurusan; ?> di <?= $pdd->universitas ?> pada tahun <?= $pdd->tahun; ?>
+                      Program Studi <?= $pdd->jurusan; ?> di <?= $pdd->universitas ?> pada tahun <?= $pdd->tahun; ?>
                     </p>
 
                     <hr>
@@ -245,7 +245,7 @@
                     <?= $pdd->kd_tridharma; ?> - <?= $pdd->skala; ?> - <a href="<?= base_url('rekognisiDosen/'.$pdd->file); ?> " target="_blank" rel="noopener noreferrer" class="btn btn-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Lihat</a></strong>
                     
                     <p class="text-muted">
-                     Rekognisi <?= $pdd->kd_tridharma; ?> sebagai <?= $pdd->oleh; ?> pada <?= $pdd->tahun; ?> 
+                     Rekognisi <?= $pdd->kd_tridharma; ?> sebagai <?= $pdd->rekognisi; ?> pada tahun <?= $pdd->tahun; ?> oleh <?= $pdd->oleh; ?>
                     </p>
 
                     <hr>

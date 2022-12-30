@@ -39,6 +39,8 @@ $routes->get('/dashboard', 'Home::index', ['filter' => 'auth']);
 //$routes->get('/home', 'Beranda::index');
 $routes->get('/', 'Beranda::index');
 $routes->get('/dosen/profil/(:num)', 'Beranda::profil/$1');
+$routes->get('/dosen', 'Dosen::profilDosen',['filter' => 'auth']);
+$routes->post('/dosen/ubah', 'Dosen::editDosen',['filter' => 'auth']);
 $routes->get('/json_label', 'Home::json_label', ['filter' => 'auth']);
 $routes->get('/json_count', 'Home::json_count', ['filter' => 'auth']);
 $routes->get('/login', 'Auth::login', ['filter' => 'authTamu']);
