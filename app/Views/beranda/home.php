@@ -36,7 +36,7 @@
                     <div class="m-4 m-lg-5">
                         <h1 class="display-5 fw-bold">Pusat Data Dosen FEB UPS</h1>
                         <p class="fs-4">Profil dosen berdasarkan kontribusi pendidikan dan pengajaran, penelitian, pengabdian kepada masyarkat yang ditampilkan melalui website sebagai Pusat Data yang dimiliki oleh Fakultas Ekonomi dan Bisnis Universitas Pancasakti Tegal</p>
-                        <a class="btn btn-primary btn-lg" href="<?= site_url(); ?>">Login sebagai Dosen</a>
+                        <a class="btn btn-primary btn-lg" href="<?= site_url('login'); ?>">Login sebagai Dosen</a>
                     </div>
                 </div>
             </div>

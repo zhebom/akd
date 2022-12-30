@@ -14,7 +14,7 @@ class AuthTamu implements FilterInterface
         if (session()->has('email_dosen')) {
             // return redirect()->to("/");
 
-            return redirect()->to(base_url('/')) ;
+            return redirect()->to(base_url('/dashboard')) ;
         }
         //return redirect()->to(base_url('/'));
         // Do something here

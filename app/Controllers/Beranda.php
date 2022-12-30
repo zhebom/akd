@@ -8,6 +8,7 @@ use App\Models\LuaranModel;
 use App\Models\DosenModel;
 use App\Models\RekognisiModel;
 use App\Models\LaporanModel;
+use App\Models\GsModel;
 class Beranda extends BaseController
 {
     public function index()
@@ -36,7 +37,8 @@ class Beranda extends BaseController
         $luaran = new LuaranModel();
         $rekognisi = new RekognisiModel();
         $laporan = new LaporanModel();
-                $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen,foto, nidn_dosen,id_dosen FROM dosen_febups where id_dosen = $id")->getResult();
+        $gs = new GsModel();
+                $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen,id_dosen FROM dosen_febups where id_dosen = $id")->getResult();
 
         $lastpendidikan = $pdd->query("SELECT universitas, jurusan, tingkat, tahun FROM riwpendidikan_dosen where id_dosen = $id ORDER BY tahun DESC")->getResult();
 
@@ -50,6 +52,8 @@ class Beranda extends BaseController
        
         $laporan= $laporan->query("SELECT * FROM laporan_dosen where id_dosen = $id ORDER BY tahun DESC")->getResult();
 
+        $gs= $gs->query("SELECT * FROM gs_dosen where id_dosen = $id")->getResult();
+
 
 
         $data = [
@@ -60,7 +64,8 @@ class Beranda extends BaseController
             'profesi' => $profesi,
             'luaran' => $luaran,
             'rekognisi' => $rekognisi,
-            'laporan' => $laporan
+            'laporan' => $laporan,
+            'gs' => $gs
           
 
         ];

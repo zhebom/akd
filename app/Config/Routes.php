@@ -17,7 +17,7 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Beranda');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -35,8 +35,9 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index', ['filter' => 'auth']);
-$routes->get('/home', 'Beranda::index');
+$routes->get('/dashboard', 'Home::index', ['filter' => 'auth']);
+//$routes->get('/home', 'Beranda::index');
+$routes->get('/', 'Beranda::index');
 $routes->get('/dosen/profil/(:num)', 'Beranda::profil/$1');
 $routes->get('/json_label', 'Home::json_label', ['filter' => 'auth']);
 $routes->get('/json_count', 'Home::json_count', ['filter' => 'auth']);

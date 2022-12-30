@@ -42,6 +42,7 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+  <div class="container">
  <!-- Main content -->
  <section class="content">
       <div class="container-fluid">
@@ -53,8 +54,8 @@
               <div class="card-body box-profile">
               
               
-                <h3 class="profile-username text-center"><?= $d->nama_dosen; ?></h3>
-
+                <h3 class="profile-username text-center"><strong><?= $d->nama_dosen; ?></h3>
+                </strong>
                 <p class="text-muted text-center">NIDN. <?= $d->nidn_dosen; ?></p>
                 <?php endforeach; ?>
 
@@ -138,11 +139,33 @@
                     <?= $pdd->kompetensi; ?></strong>
 
                     <p class="text-muted">
-                     Kompetensi Profesi <?= $pdd->kompetensi; ?> diselenggarakan oleh <?= $pdd->penyelenggara; ?> yang berlaku hingga <?= $pdd->berlaku; ?> <a href="<?= base_url('profilDosen/'.$pdd->file); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Lihat</a>
+                     Kompetensi Profesi <?= $pdd->kompetensi; ?> diselenggarakan oleh <?= $pdd->penyelenggara; ?> yang diakui secara <strong><?= $pdd->skala; ?> </strong>  dan berlaku hingga <?= $pdd->berlaku; ?> <a href="<?= base_url('profilDosen/'.$pdd->file); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Lihat</a>
                     </p>
 
                     <hr>
                     <?php endforeach; ?>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                  <!-- End Pendidikan -->
+
+
+                   <!-- Profesi -->
+                <div class="card card-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Sitasi Dosen</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                  <?php foreach ($gs as $g): ?>
+                     
+                      <input type="hidden" name="gs" id="gs" value="<?= $g->gs_dosen; ?>">
+                      
+                    <?php endforeach; ?>
+                    <div id="container">
+                     
+                    </table>
+                    </div>
                   </div>
                   <!-- /.card-body -->
                 </div>
@@ -193,7 +216,8 @@
                   foreach ($luaran as $pdd): ?>
                     <strong><b><?= $no; ?>. </b>
                     <?= $pdd->kd_tridharma; ?> - <?= $pdd->skala; ?> - <a href="<?= base_url('luaranDosen/'.$pdd->file); ?> " target="_blank" rel="noopener noreferrer" class="btn btn-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Lihat</a></strong>
-                    <a href="<?= $pdd->link; ?> " target="_blank" rel="noopener noreferrer" class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Link</a></strong>
+                    <a href="<?php if( $pdd->link == "-"){echo "#";}else {echo $pdd->link;
+                    echo 'target="_blank"';} ?> "  rel="noopener noreferrer" class="btn btn-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Link</a></strong>
                     
                     
                     <p class="text-muted">
@@ -231,7 +255,7 @@
                 </div>
                   <!-- End Pendidikan -->
 
-
+                    
 
                  
 
@@ -250,6 +274,7 @@
     </section>
     <!-- /.content -->
     </div>
+    </div>
   <!-- /.content-wrapper -->
   <!-- Footer-->
   <footer class="py-5 bg-dark">
@@ -258,7 +283,24 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="<?= base_url('assets'); ?>js/scripts.js"></script>
+        <script src="<?= base_url('assets'); ?>/js/scripts.js"></script>
+        <script>
+      
+                    console.log(gs.value);
+      var container = document.getElementById('container');
+      var xhr = new XMLHttpRequest();
+
+      xhr.onload = function(){
+          if (xhr.readyState == 4 && xhr.status == 200){
+           console.log(xhr.responseText)
+            container.innerHTML = xhr.responseText;
+          }
+        }
+        xhr.open('GET', '<?= base_url('assets'); ?>/gs/googlescholarhome.php?user='+gs.value, true);
+          xhr.send();
+
+         
+</script>
     </body>
 </html>
 

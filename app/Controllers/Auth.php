@@ -42,7 +42,7 @@ class Auth extends BaseController
                 if ($ceklogin['role_dosen']>1)
                 {
                   
-                    return redirect()->to(base_url());
+                    return redirect()->to(base_url('dashboard'));
                 } 
                 else 
                 {
@@ -135,6 +135,6 @@ class Auth extends BaseController
     {
         $session = session();
         $session->destroy();
-        return redirect()->to(base_url('login'));
+        return redirect()->to(base_url('/'));
     }
 }
