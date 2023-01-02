@@ -1,6 +1,3 @@
-
-
-
 <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="dist/logo/ups.png" alt="ups" height="60" width="60">
@@ -165,7 +162,6 @@
            <!-- Pengabdian -->
            <li class="nav-item <?php if($mainMenu == 'Pengabdian'){echo "menu-open";}?>">
             <a href="#" class="nav-link <?php if($mainMenu == 'Pengabdian'){echo "active";}?> ">
-            
               <p>
                 Pengabdian kepada Masyarakat
                 <i class="right fas fa-angle-left"></i>

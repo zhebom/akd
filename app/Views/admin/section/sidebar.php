@@ -60,7 +60,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block">Nama Akun</a>
+          <a href="#" class="d-block">Administrator</a>
         </div>
       </div>
 
@@ -71,116 +71,29 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <!-- Pendidikan & Pengajaran -->
-          <li class="nav-item <?php if($mainMenu == 'Pendidikan'){echo "menu-open";}?>
+          <li class="nav-item <?php if($mainMenu == 'Dosen'){echo "menu-open";}?>
            ">
            
-            <a href="#" class="nav-link <?php if($mainMenu == 'Pendidikan'){echo "active";}?>">
+            <a href="#" class="nav-link <?php if($mainMenu == 'Dosen'){echo "active";}?>">
               
               <p>
-              Pendidikan & Pengajaran
+              Manajemen Dosen
               
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview ">
               <li class="nav-item">
-                <a href="<?= base_url('pendidikan/rekognisi');?>" class="nav-link  <?php if($parentMenu == 'rekognisiPendidikan'){echo "active";}?>">
+                <a href="<?= base_url('admin/dosen');?>" class="nav-link  <?php if($parentMenu == 'riwayatDosen'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Rekognisi</p>
+                  <p>Data Dosen</p>
                 </a>
               </li>
               
             </ul>
           </li>
 
-            <!-- Penelitian -->
-          <li class="nav-item <?php if($mainMenu == 'Penelitian'){echo "menu-open";}?>">
-            <a href="#" class="nav-link <?php if($mainMenu == 'Penelitian'){echo "active";}?> ">
-            
-              <p>
-                Penelitian
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item ">
-                <a href="<?= base_url('penelitian/reportPenelitian');?>
-                " class="nav-link <?php if($parentMenu == 'reportPenelitian'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Penelitian</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('penelitian/reportJurnal');?>
-                " class="nav-link <?php if($parentMenu == 'reportJurnalPenelitian'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jurnal</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('penelitian/rekognisi');?>
-                " class="nav-link <?php if($parentMenu == 'rekognisiPenelitian'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Rekognisi</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-           <!-- Pengabdian -->
-           <li class="nav-item <?php if($mainMenu == 'Pengabdian'){echo "menu-open";}?>">
-            <a href="#" class="nav-link <?php if($mainMenu == 'Pengabdian'){echo "active";}?> ">
-            
-              <p>
-                Pengabdian kepada Masyarakat
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item ">
-                <a href="<?= base_url('pengabdian/reportPengabdian');?>
-                " class="nav-link <?php if($parentMenu == 'reportPengabdian'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan pengabdian</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('pengabdian/reportJurnalPengabdian');?>
-                " class="nav-link <?php if($parentMenu == 'reportJurnalPengabdian'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jurnal</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('pengabdian/rekognisi');?>
-                " class="nav-link <?php if($parentMenu == 'rekognisiPengabdian'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Rekognisi</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-           <!-- GOOGLE SCHOLAR -->
-           <li class="nav-item <?php if($mainMenu == 'GS'){echo "menu-open";}?>">
-            <a href="#" class="nav-link <?php if($mainMenu == 'GS'){echo "active";}?> ">
-            
-              <p>
-                Google Scholar
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('gs/reportSitasi');?>
-                " class="nav-link  <?php if($parentMenu == 'reportSitasi'){echo "active";}?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Sitasi Dosen</p>
-                </a>
-              </li>
-             
-              </li>
-            </ul>
-          </li>
+           
 
 
         </ul>

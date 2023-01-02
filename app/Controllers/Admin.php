@@ -9,20 +9,25 @@ use App\Models\DosenModel;
 use App\Models\RekognisiModel;
 use App\Models\LaporanModel;
 use App\Models\GsModel;
-class Beranda extends BaseController
+class Admin extends BaseController
 {
     public function index()
     {     
-        $dosenModel = new DosenModel();
-        $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen,id_dosen, role_dosen FROM dosen_febups where role_dosen = 2")->getResult();
 
+       $dosen = new DosenModel();
+       $dosen = $dosen->query("SELECT id_dosen, role_dosen, nama_dosen, email_dosen, nidn_dosen FROM dosen_febups where id_dosen = 2 ")->getResult();
         $data = [
-            'title' => 'Beranda',
-            'dosen' => $dosenModel
+            'title' => 'Beranda Admin',
+            'mainMenu' => 'Beranda',
+            'parentMenu' => 'Dashboard',
+            'dosen' => $dosen
 
         ];
 
-        echo view('beranda/home',$data);
+        // echo view('admin/section/home',$data);
+        echo view('admin/section/head',$data);
+        echo view('admin/section/sidebar',$data);
+        echo view('admin/section/foot',$data);
      
         
     }
@@ -58,6 +63,8 @@ class Beranda extends BaseController
 
         $data = [
             'title' => 'Profil Dosen',
+            'mainMenu' => 'Dosen',
+            'parentMenu' => 'riwayatDosen',
             'dosen' => $dosenModel,
             'pendidikan' => $lastpendidikan,
             'jafa' => $jafa,
@@ -70,7 +77,35 @@ class Beranda extends BaseController
 
         ];
 
-        echo view('dosen/profile',$data);
+         echo view('admin/section/head',$data);
+        echo view('admin/section/sidebar',$data);
+        echo view('admin/dosen/profilDosen',$data);
+        echo view('admin/section/foot',$data);
+     
+        
+    }
+
+    public function listDosen()
+    {     
+        
+        $dosenModel = new DosenModel();
+      
+                $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen,id_dosen, role_dosen FROM dosen_febups where role_dosen = 2 ")->getResult();
+
+        $data = [
+            'title' => 'Profil Dosen',
+            'mainMenu' => 'Dosen',
+            'parentMenu' => 'riwayatDosen',
+            'dosen' => $dosenModel,
+            'validasi' => \Config\Services::validation()
+          
+
+        ];
+
+         echo view('admin/section/head',$data);
+        echo view('admin/section/sidebar',$data);
+        echo view('admin/dosen/daftarDosen',$data);
+        echo view('admin/section/foot',$data);
      
         
     }

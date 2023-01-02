@@ -46,8 +46,8 @@ class Auth extends BaseController
                 } 
                 else 
                 {
-                    echo "Anda Admin"; 
-                    //  redirect()->to(base_url('/admin'));
+                    // echo "Anda Admin"; 
+                   redirect()->to(base_url('admin/dashboard'));
                 }
                 //echo "password anda berhasil";
             
