@@ -74,9 +74,15 @@ class Auth extends BaseController
        
         $data = [
             'title' => 'Login',
-            'validasi' => \Config\Services::validation()
+            'validasi' => \Config\Services::validation(),
+            'mainMenu' => 'Dosen',
+            'parentMenu' => 'riwayatDosen',
         ];
-        return view('auth/register',$data);
+       
+        echo view('admin/section/head',$data);
+        echo view('admin/section/sidebar',$data);
+        echo view('auth/register',$data);
+        echo view('admin/section/foot',$data);
     
     }
 
@@ -109,7 +115,7 @@ class Auth extends BaseController
             ]
     )) {
         $validasi =  \Config\Services::validation();
-         return redirect()->to(base_url('/register'))->withinput()->with('validation',$validasi);
+         return redirect()->to(base_url('/admin/dosen/register'))->withinput()->with('validation',$validasi);
     
         }
     

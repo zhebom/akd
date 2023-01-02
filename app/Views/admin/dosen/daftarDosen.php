@@ -1,7 +1,7 @@
 <div class="card">
               <div class="card-header">
                 <!-- <h3 class="card-title">Daftar Sertifikasi BNSP</h3> -->
-                <a href="<?= base_url('pendidikan/rekognisi'); ?>" type="button" class="btn btn-primary">Tambah Rekognisi Pendidikan</a>
+                <a href="<?= base_url('pendidikan/rekognisi'); ?>" type="button" class="btn btn-primary">Tambah Dosen</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -29,7 +29,7 @@
                     <td><?= $r->email_dosen; ?></td>
                     
                     
-                    <td><a class="btn btn-success"href="<?= base_url('admin/dosen/'.$r->id_dosen) ?>" target="_blank" rel="noopener noreferrer">Lihat Profil</a></td>
+                    <td><a class="btn btn-success"href="<?= base_url('admin/dosen/'.$r->id_dosen) ?>" rel="noopener noreferrer">Lihat Profil</a></td>
                     <td>
                     <form action="#"
                       

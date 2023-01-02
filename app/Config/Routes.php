@@ -39,6 +39,7 @@ $routes->get('/dashboard', 'Home::index', ['filter' => 'auth']);
 $routes->get('/admin/dashboard', 'Admin::index', ['filter' => 'auth']);
 $routes->get('/admin/dosen/', 'Admin::listDosen', ['filter' => 'auth']);
 $routes->get('/admin/dosen/(:num)', 'Admin::profil/$1', ['filter' => 'auth']);
+$routes->get('/admin/dosen/register', 'Auth::register', ['filter' => 'auth']);
 //$routes->get('/home', 'Beranda::index');
 $routes->get('/', 'Beranda::index');
 $routes->get('/dosen/profil/(:num)', 'Beranda::profil/$1');
@@ -77,7 +78,7 @@ $routes->get('/pengabdian/listJurnalPengabdian', 'Pengabdian::listJurnalPengabdi
 $routes->get('/gs/reportSitasi', 'Sitasi::index', ['filter' => 'auth']);
 $routes->get('/gs/addGS/(:any)', 'Sitasi::addGS/$1', ['filter' => 'auth']);
 
-$routes->get('/register', 'Auth::register');
+
 $routes->post('/addDosen', 'Auth::addDosen', ['filter' => 'auth']);
 $routes->post('/ceklogin', 'Auth::ceklogin');
 $routes->get('/logout', 'Auth::logout', ['filter' => 'auth']);
