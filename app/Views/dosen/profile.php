@@ -266,7 +266,7 @@
             <!-- /.card -->
           </div>
 
-          <?php } else {echo "<h5 class='label label-warning'>Data Tidak Ditemukan</h5>";} ?>
+          <?php } else {echo "<label class='label label-danger'>Data Tidak Ditemukan</label>";} ?>
           <!-- /.col -->
         </div>
         
