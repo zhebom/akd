@@ -48,7 +48,9 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-          <?php foreach ($dosen as $d): ?>
+          <?php 
+          if ($dosen){
+          foreach ($dosen as $d): ?>
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
@@ -178,6 +180,7 @@
 
             
             <!-- /.card -->
+          
           </div>
           <!-- /.col -->
           <div class="col-md-9">
@@ -263,7 +266,7 @@
             <!-- /.card -->
           </div>
 
-          
+          <?php } else {echo "<h5 class='label label-warning'>Data Tidak Ditemukan</h5>";} ?>
           <!-- /.col -->
         </div>
         

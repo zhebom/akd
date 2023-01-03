@@ -6,7 +6,11 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-          <?php foreach ($dosen as $d): ?>
+          
+          <?php
+          
+          if ($dosen){
+          foreach ($dosen as $d): ?>
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
@@ -15,8 +19,8 @@
                 <h3 class="profile-username text-center"><strong><?= $d->nama_dosen; ?></h3>
                 </strong>
                 <p class="text-muted text-center">NIDN. <?= $d->nidn_dosen; ?></p>
+               
                 <?php endforeach; ?>
-
 
                 
                
@@ -35,7 +39,9 @@
                     </p>
 
                     <hr>
-                    <?php endforeach; ?>
+                    <?php endforeach; 
+                    
+                    ?>
                   </div>
                   <!-- /.card-body -->
                 </div>
@@ -136,6 +142,8 @@
 
             
             <!-- /.card -->
+         
+         
           </div>
           <!-- /.col -->
           <div class="col-md-9">
@@ -221,7 +229,7 @@
             <!-- /.card -->
           </div>
 
-          
+          <?php } else {echo "<button class='btn btn-danger'>Data Tidak Ditemukan</button>";} ?>
           <!-- /.col -->
         </div>
         
