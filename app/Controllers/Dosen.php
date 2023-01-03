@@ -5,6 +5,10 @@ use App\Models\RiwPendModel;
 use App\Models\RiwJafaModel;
 use App\Models\RiwProfesiModel;
 use App\Models\DosenModel;
+use App\Models\RekognisiModel;
+use App\Models\LaporanModel;
+use App\Models\LuaranModel;
+use App\Models\GsModel;
 
 class Dosen extends BaseController
 {
@@ -490,11 +494,35 @@ class Dosen extends BaseController
          
             
             $validasi =  \Config\Services::validation();
-            session()->setFlashdata('msg', 'Dosen Berhasil Diruibah');
+            session()->setFlashdata('msg', 'Dosen Berhasil Dirubah');
             return redirect()->to(base_url('/dosen'));
         }
     
      
+    }
+    public function delDosen($id)
+    {
+       
+        $dosenModel1 = new DosenModel();
+        $RiwPendModel = new RiwPendModel();
+        $RiwJafaModel = new RiwJafaModel();
+        $RiwProfesiModel = new RiwProfesiModel();
+        $RekognisiModel = new RekognisiModel();
+        $LaporanModel = new LaporanModel();
+        $LuaranModel = new LuaranModel();
+        $GsModel = new GsModel();
+        // $dosenModel1->delete($id);
+        $dosenModel1->query("DELETE FROM dosen_febups WHERE id_dosen = $id");
+        $RiwPendModel->delete($id);
+        $RiwJafaModel->delete($id);
+        $RiwProfesiModel->delete($id);
+        $RekognisiModel->delete($id);
+        $LaporanModel->delete($id);
+        $LuaranModel->delete($id);
+        $GsModel->delete($id);
+        
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Dosen Berhasil Dihapus</div>');
+       return redirect()->to(base_url('/admin/dosen'));
     }
     
 }

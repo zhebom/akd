@@ -25,6 +25,7 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
         'auth' => \App\Filters\Auth::class,
         'authTamu' => \App\Filters\AuthTamu::class,
+        'admin' => \App\Filters\Admin::class
     ];
 
     /**

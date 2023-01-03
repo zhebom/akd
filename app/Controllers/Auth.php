@@ -34,7 +34,6 @@ class Auth extends BaseController
                     'role_dosen' => $ceklogin['role_dosen'],
                     'nidn_dosen' => $ceklogin['nidn_dosen'],
                     'logged_id' => TRUE
-
                 ];
               
                 $session->set($data);
@@ -46,8 +45,8 @@ class Auth extends BaseController
                 } 
                 else 
                 {
-                    // echo "Anda Admin"; 
-                   redirect()->to(base_url('admin/dashboard'));
+                    //echo "Anda Admin"; 
+                   return redirect()->to(base_url('admin/dashboard'));
                 }
                 //echo "password anda berhasil";
             
@@ -134,7 +133,7 @@ class Auth extends BaseController
         
         $validasi =  \Config\Services::validation();
         session()->setFlashdata('msg', 'Dosen Berhasil Ditambah');
-        return redirect()->to(base_url('/register'));
+        return redirect()->to(base_url('/admin/dosen/register'));
     }
 
     public function logout()

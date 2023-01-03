@@ -96,6 +96,9 @@ $routes->post('/dosen/addProfesiDosen', 'Dosen::addProfesiDosen', ['filter' => '
 $routes->delete('/dosen/delete/(:num)/', 'Dosen::delPendidikanDosen/$1', ['filter' => 'auth']);
 $routes->delete('/dosen/deleteJafa/(:num)', 'Dosen::delJafaDosen/$1', ['filter' => 'auth']);
 $routes->delete('/dosen/deleteProfesi/(:num)', 'Dosen::delProfesiDosen/$1', ['filter' => 'auth']);
+
+$routes->delete('/admin/delDosen/(:num)', 'Dosen::delDosen/$1', ['filter' => 'auth']);
+
 $routes->delete('/deleteLaporan/(:any)', 'Penelitian::delLaporanDosen/$1', ['filter' => 'auth']);
 
 /*

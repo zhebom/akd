@@ -6,17 +6,15 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class Auth implements FilterInterface
+class Admin implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        
-     
 
-        if (!session()->has('email_dosen')) {
+        if (session()->has('role_dosen') == 1) {
             // return redirect()->to("/");
 
-            return redirect()->to(base_url('/login'))->with('msg', 'Anda harus Login terlebih dahulu');
+            return redirect()->to(base_url('/admin/dashboard')) ;
         }
         //return redirect()->to(base_url('/'));
         // Do something here
