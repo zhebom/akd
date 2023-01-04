@@ -38,7 +38,8 @@ class Beranda extends BaseController
         $rekognisi = new RekognisiModel();
         $laporan = new LaporanModel();
         $gs = new GsModel();
-                $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen,id_dosen, role_dosen FROM dosen_febups where id_dosen = $id ")->getResult();
+                
+        $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen,id_dosen, role_dosen FROM dosen_febups where id_dosen = $id and role_dosen=2")->getResult();
 
         $lastpendidikan = $pdd->query("SELECT universitas, jurusan, tingkat, tahun FROM riwpendidikan_dosen where id_dosen = $id ORDER BY tahun DESC")->getResult();
 

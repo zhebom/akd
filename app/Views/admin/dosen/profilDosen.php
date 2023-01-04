@@ -229,7 +229,11 @@
             <!-- /.card -->
           </div>
 
-          <?php } else {echo "<button class='btn btn-danger'>Data Tidak Ditemukan</button>";} ?>
+          <?php } else {
+            $h = '<div class="alert alert-primary" role="alert">
+            This is a primary alert—check it out!
+          </div>';
+            echo $h;} ?>
           <!-- /.col -->
         </div>
         

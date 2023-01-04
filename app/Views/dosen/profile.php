@@ -266,7 +266,16 @@
             <!-- /.card -->
           </div>
 
-          <?php } else {echo "<label class='label label-danger'>Data Tidak Ditemukan</label>";} ?>
+          <?php } else {
+            
+      
+            $h ='
+  
+            Data Tidak Ditemukan
+
+          ';
+ 
+            echo $h;} ?>
           <!-- /.col -->
         </div>
         
