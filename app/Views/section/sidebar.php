@@ -47,7 +47,11 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-    
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="info">
+          <a class="d-block">Dosen</a>
+        </div>
+      </div>
 
 
       <!-- Sidebar Menu -->
@@ -66,6 +70,13 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item ">
+                <a href="<?= base_url('dosen');?>
+                " class="nav-link <?php if($parentMenu == 'profilDosen'){echo "active";}?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profil Dosen</p>
+                </a>
+              </li>
               <li class="nav-item ">
                 <a href="<?= base_url('dosen/listPendidikanDosen');?>
                 " class="nav-link <?php if($parentMenu == 'riwayatPendidikanDosen'){echo "active";}?>">
@@ -92,7 +103,7 @@
 
          
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <a href="#" class="d-block">Tridharma Dosen</a>
+              <a class="d-block">Tridharma Dosen</a>
             </div>
           
 

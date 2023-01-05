@@ -422,7 +422,7 @@ class Dosen extends BaseController
         $data = [
             'title' => 'Profil Dosen',
             'mainMenu' => 'Dosen',
-            'parentMenu' => 'riwayatPendidikanDosen',
+            'parentMenu' => 'profilDosen',
             'nama_dosen' => session()->get('nama_dosen'),
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),

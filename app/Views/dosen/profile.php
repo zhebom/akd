@@ -47,7 +47,12 @@
  <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+                 
+
+        <div class="col-md-3">
+
+
+
           <?php 
           if ($dosen){
           foreach ($dosen as $d): ?>
