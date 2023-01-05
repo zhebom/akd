@@ -73,9 +73,10 @@ class Auth extends BaseController
        
         $data = [
             'title' => 'Login',
-            'validasi' => \Config\Services::validation(),
+            
             'mainMenu' => 'Dosen',
             'parentMenu' => 'riwayatDosen',
+			'validasi' => \Config\Services::validation(),
         ];
        
         echo view('admin/section/head',$data);
