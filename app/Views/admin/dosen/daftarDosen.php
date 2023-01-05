@@ -16,7 +16,7 @@
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Lihat Profil</th>
-                    <th>Aksi</th>
+                    <th colspan="2" align="center">Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -30,6 +30,8 @@
                     
                     
                     <td><a class="btn btn-success"href="<?= base_url('admin/dosen/'.$r->id_dosen); ?>" rel="noopener noreferrer">Lihat Profil</a></td>
+                    
+                    <td><a class="btn btn-warning"href="<?= base_url('admin/dosen/ubahpass/'.$r->id_dosen); ?>">Ubah Password</a></td>
                     <td>
                     <form action="<?= base_url('/admin/delDosen/'.$r->id_dosen); ?>"
                       

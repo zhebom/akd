@@ -477,7 +477,7 @@ class Dosen extends BaseController
                 $dosenModel->query("UPDATE dosen_febups SET nama_dosen =  '$nama_dosen', email_dosen = '$email_dosen', nidn_dosen = '$nidn_dosen', created_at = '$today' , pass_dosen = '$pass_dosen' WHERE id_dosen = $id_dosen");
                 
                 $validasi =  \Config\Services::validation();
-                session()->setFlashdata('msg', 'Dosen Berhasil Dirubah');
+                session()->setFlashdata('msg', 'Data Dosen Berhasil Dirubah');
                 return redirect()->to(base_url('/dosen'));
             
             
@@ -494,7 +494,7 @@ class Dosen extends BaseController
          
             
             $validasi =  \Config\Services::validation();
-            session()->setFlashdata('msg', 'Dosen Berhasil Dirubah');
+            session()->setFlashdata('msg', 'Data Dosen Berhasil Dirubah');
             return redirect()->to(base_url('/dosen'));
         }
     
@@ -523,6 +523,26 @@ class Dosen extends BaseController
         
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Dosen Berhasil Dihapus</div>');
        return redirect()->to(base_url('/admin/dosen'));
+    }
+
+    public function resPass($id){
+       
+        $pass = "pancasakti123";
+        $pass_dosen = password_hash($pass, PASSWORD_DEFAULT);
+               
+            // Jika Password tidak terisi 
+
+            $today = date("Y-m-d H:i:s");
+            $dosenModel = new DosenModel();
+            
+           
+
+            $dosenModel->query("UPDATE dosen_febups SET pass_dosen = '$pass_dosen' WHERE id_dosen = $id");
+         
+            
+            $validasi =  \Config\Services::validation();
+            session()->setFlashdata('msg', 'Password diubah menjadi pancasakti123');
+            return redirect()->to(base_url('admin/dosen'));
     }
     
 }

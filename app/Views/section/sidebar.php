@@ -74,7 +74,7 @@
                 <a href="<?= base_url('dosen');?>
                 " class="nav-link <?php if($parentMenu == 'profilDosen'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Profil Dosen</p>
+                  <p>Edit Profil Dosen</p>
                 </a>
               </li>
               <li class="nav-item ">
