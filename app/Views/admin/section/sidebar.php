@@ -72,7 +72,7 @@
             <a href="#" class="nav-link <?php if($mainMenu == 'Dosen'){echo "active";}?>">
               
               <p>
-              Manajemen Dosen
+              Master Data
               
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -82,6 +82,12 @@
                 <a href="<?= base_url('admin/dosen');?>" class="nav-link  <?php if($parentMenu == 'riwayatDosen'){echo "active";}?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Dosen</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('admin/dosen/luaran');?>" class="nav-link  <?php if($parentMenu == 'dataLuaran'){echo "active";}?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Luaran</p>
                 </a>
               </li>
               

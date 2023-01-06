@@ -36,12 +36,16 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/dashboard', 'Home::index', ['filter' => 'auth']);
-$routes->get('/admin/dashboard', 'Admin::index', ['filter' => 'admin']);
-$routes->get('/admin/dosen/', 'Admin::listDosen', ['filter' => 'admin']);
-$routes->get('/admin/dosen/(:num)', 'Admin::profil/$1', ['filter' => 'admin']);
+$routes->get('/admin/dashboard', 'Admin::index', ['filter' => 'auth','admin']);
+$routes->get('/admin/dosen/', 'Admin::listDosen', ['filter' => 'auth', 'admin']);
+$routes->get('/admin/dosen/(:num)', 'Admin::profil/$1', ['filter' => 'auth','admin']);
 // $routes->get('/admin/dosen/register', 'Auth::register');
-$routes->get('/admin/dosen/register', 'Auth::register',['filter' => 'admin']);
-$routes->get('/admin/dosen/ubahpass/(:num)', 'Dosen::resPass/$1',['filter' => 'admin']);
+$routes->get('/admin/dosen/register', 'Auth::register',['filter' => 'auth','admin']);
+$routes->get('/admin/dosen/luaran', 'Admin::listLuaran',['filter' => 'auth','admin']);
+$routes->delete('/admin/dosen/luaran/del/(:num)', 'Admin::delLuaran/$1',['filter' => 'auth','admin']);
+$routes->get('/admin/dosen/ubahpass/(:num)', 'Dosen::resPass/$1',['filter' => 'auth','admin']);
+$routes->get('/admin/dosen/addluaran', 'Admin::viewaddLuaran',['filter' => 'auth','admin']);
+$routes->post('/admin/dosen/saveluaran', 'Admin::addDataLuaran',['filter' => 'auth','admin']);
 //$routes->get('/home', 'Beranda::index');
 $routes->get('/', 'Beranda::index');
 $routes->get('/dosen/profil/(:num)', 'Beranda::profil/$1');
