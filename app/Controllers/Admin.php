@@ -9,6 +9,7 @@ use App\Models\DosenModel;
 use App\Models\RekognisiModel;
 use App\Models\LaporanModel;
 use App\Models\GsModel;
+use App\Models\DataLuaranModel;
 class Admin extends BaseController
 {
     public function index()
@@ -109,4 +110,103 @@ class Admin extends BaseController
      
         
     }
+
+    public function listLuaran()
+    {
+        
+        $dosen = new DosenModel();
+       $dosen = $dosen->query("SELECT * FROM kode_luaran order by nama_luaran ASC")->getResult();
+        
+        $data = [
+            'title' => 'Profil Dosen',
+            'mainMenu' => 'Dosen',
+            'parentMenu' => 'dataLuaran',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen'),
+            'dosen' => $dosen,
+            'validasi' => \Config\Services::validation()
+            
+        ];
+
+        echo view('admin/section/head',$data);
+        echo view('admin/section/sidebar',$data);
+        echo view('admin/dosen/dataLuaran',$data);
+        echo view('admin/section/foot',$data);
+    }
+    public function viewaddLuaran()
+    {
+        
+       
+        $data = [
+            'title' => 'Profil Dosen',
+            'mainMenu' => 'Dosen',
+            'parentMenu' => 'dataLuaran',
+            'nama_dosen' => session()->get('nama_dosen'),
+            'role_dosen' => session()->get('role_dosen'),
+            'email_dosen' => session()->get('email_dosen'),
+            'nidn_dosen' => session()->get('nidn_dosen'),
+          
+            'validasi' => \Config\Services::validation()
+            
+        ];
+
+        echo view('admin/section/head',$data);
+        echo view('admin/section/sidebar',$data);
+        echo view('admin/dosen/addLuaran',$data);
+        echo view('admin/section/foot',$data);
+    }
+
+
+    public function addDataLuaran()
+    {
+       
+      if (!$this->validate(
+        [           
+           
+            'luaran' => 'required',
+           
+          
+                             ],
+        [            
+           
+            
+            'luaran' => [ 
+                'required' => 'Luaran harus diisi'
+            ]
+          
+           
+            ]
+    )) {
+        
+        session()->setFlashdata('msg', '<div class="alert alert-warning" role="alert">Data Gagal Disimpan</div>');
+        return redirect()->to(base_url('admin/dosen/addluaran'))->withinput();
+    
+        }
+    
+        $today = date("Y-m-d H:i:s");
+        $DataLuaranModel = new DataLuaranModel();
+       
+        $DataLuaranModel->save([
+          
+            'nama_luaran' => $this->request->getVar('luaran'),
+           
+            'created_at' => $today
+ 
+        ]);
+        
+      
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data luaran berhasil ditambah</div>');
+        return redirect()->to(base_url('admin/dosen/addluaran'));
+    }
+
+    public function delLuaran($id)
+    {
+        $DataLuaranModel = new DataLuaranModel();
+        $DataLuaranModel->delete($id);
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data luaran berhasil dihapus</div>');
+        return redirect()->to(base_url('admin/dosen/luaran'));
+    }
+    
 }

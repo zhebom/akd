@@ -1,4 +1,4 @@
-<div class="content">
+
 <div class="card">
               <div class="card-header">
                 <!-- <h3 class="card-title">Daftar Sertifikasi BNSP</h3> -->
@@ -6,7 +6,8 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <?= session()->getFlashdata('msg') ?>
+              <?= $validasi->listErrors(); ?>
+              <strong><?= session()->getFlashdata('msg') ?></strong>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
@@ -54,4 +55,4 @@
               </div>
               <!-- /.card-body -->
             </div>
-            </div>
+         
