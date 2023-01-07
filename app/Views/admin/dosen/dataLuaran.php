@@ -3,7 +3,7 @@
                 <!-- <h3 class="card-title">Daftar Sertifikasi BNSP</h3> -->
                 <a href="<?= base_url('admin/dosen/addluaran'); ?>" type="button" class="btn btn-primary">Tambah Data Luaran</a>
               </div>
-              <!-- /.card-header -->
+                            <!-- /.card-header -->
               <div class="card-body">
               <?= $validasi->listErrors(); ?>
               <strong><?= session()->getFlashdata('msg') ?></strong>
@@ -13,14 +13,16 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th colspan="2" >Aksi</th>
+                    <th >Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
-                    <?php $no=1; foreach ($dosen as $d): ?>
+                    <?php 
+					$no=1;
+					foreach ($dosen as $d): ?>
                   <tr>
                     <td><?= $no; ?></td>
-                    <td><?= $d->nama_luaran ?></td>
+                    <td><?= $d->nama_luaran; ?></td>
                    
                     <td>
                     <form action="<?= base_url('admin/dosen/luaran/del/'.$d->id); ?>"
@@ -39,3 +41,4 @@
               </div>
               <!-- /.card-body -->
             </div>
+		

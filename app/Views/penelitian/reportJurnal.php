@@ -50,17 +50,13 @@
                         <label>Kategori</label>
                         <select class="form-control" id="skala" name="skala">
                           
-                          <option value="">-- Pilih Kategori --</option>
-                          <option value="Media Cetak">Media Cetak</option>
-                          <option value="Media Online">Media Online</option>
-                          <option value="Buku Ajar">Buku Ajar</option>
-                          <option value="Buku">Buku</option>
-                          <option value="Jurnal Nasional">Jurnal Nasional</option>
-                          <option value="Jurnal Nasional Terakreditasi">Jurnal Nasional Terakreditasi</option>
-                          <option value="Jurnal Internasional">Jurnal Internasional</option>
-                          <option value="Jurnal Internasional Bereputasi">Jurnal Internasional Bereputasi</option>
-                          <option value="Seminar Nasional">Seminar Nasional</option>
-                          <option value="Seminar Internasional">Seminar Internasional</option>
+                         <option value="">-- Pilih Kategori --</option>
+                          
+						  <?php foreach($dl as $d):?>
+						  
+						  <option value="<?= $d->nama_luaran;?>"><?= $d->nama_luaran; ?></option>
+						  <?php endforeach; ?>
+
                         
                         </select>
                      

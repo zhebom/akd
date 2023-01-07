@@ -16,7 +16,8 @@
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Lihat Profil</th>
-                    <th colspan="2" align="center">Aksi</th>
+                    <th>Aksi</th>
+					<th>Aksi</th>
                   </tr>
                   </thead>
                   <tbody>
