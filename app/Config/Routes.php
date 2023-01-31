@@ -56,8 +56,8 @@ $routes->get('/admin/dosen/addluaran', 'Admin::viewaddLuaran',['filter' => 'auth
 $routes->post('/admin/dosen/saveluaran', 'Admin::addDataLuaran',['filter' => 'auth','admin']);
 
 //$routes->get('/home', 'Beranda::index');
-$routes->get('/', 'Beranda::index');
-$routes->get('/dosen/profil/(:num)', 'Beranda::profil/$1');
+$routes->get('/', 'Beranda::index',['filter' => 'auth']);
+$routes->get('/dosen/profil/(:num)', 'Beranda::profil/$1',['filter' => 'auth']);
 $routes->get('/dosen', 'Dosen::profilDosen',['filter' => 'auth']);
 $routes->post('/dosen/ubah', 'Dosen::editDosen',['filter' => 'auth']);
 $routes->get('/json_label', 'Home::json_label', ['filter' => 'auth']);

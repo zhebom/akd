@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\RekognisiModel;
 use App\Models\LaporanModel;
 use App\Models\LuaranModel;
+use App\Models\DataLuaranModel;
 class Pengabdian extends BaseController
 {
     public function rekognisi()
@@ -103,6 +104,8 @@ class Pengabdian extends BaseController
     public function reportJurnal()
     {
         $validasi =  \Config\Services::validation();
+		$dlModel = new DataLuaranModel();
+		$dl = $dlModel->query("Select nama_luaran From kode_luaran order by nama_luaran ASC")->getResult();
         $data = [
             'title' => 'Jurnal Pengabdian',
             'mainMenu' => 'Pengabdian',
@@ -111,7 +114,8 @@ class Pengabdian extends BaseController
             'role_dosen' => session()->get('role_dosen'),
             'email_dosen' => session()->get('email_dosen'),
             'nidn_dosen' => session()->get('nidn_dosen'),
-            'validasi' => $validasi
+            'validasi' => $validasi,
+			'dl' => $dl
         ];
 
         echo view('section/head',$data);

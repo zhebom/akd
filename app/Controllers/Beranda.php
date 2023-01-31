@@ -9,19 +9,26 @@ use App\Models\DosenModel;
 use App\Models\RekognisiModel;
 use App\Models\LaporanModel;
 use App\Models\GsModel;
+use App\Models\DataLuaranModel;
 class Beranda extends BaseController
 {
     public function index()
     {     
         $dosenModel = new DosenModel();
         $dosenModel = $dosenModel->query("SELECT nama_dosen, email_dosen, nidn_dosen,id_dosen, role_dosen FROM dosen_febups where role_dosen = 2")->getResult();
+		$dl = new DataLuaranModel();
+		$dl = $dl->query('SELECT tahun, COUNT(`tahun`) as cs  FROM `luaran_dosen` GROUP by tahun')->getResult();
+		
+		
 
         $data = [
             'title' => 'Beranda',
-            'dosen' => $dosenModel
+            'dosen' => $dosenModel,
+			'dl' => $dl,
+			
 
         ];
-
+		
         echo view('beranda/home',$data);
      
         

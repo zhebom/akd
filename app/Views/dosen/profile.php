@@ -12,13 +12,13 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="<?= base_url('assets'); ?>/css/styles.css" rel="stylesheet" />
+        <link href="<?= base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
      <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?= base_url('assets'); ?>/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets/plugins/fontawesome-free/css/all.min.css'); ?>">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url('assets'); ?>/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?= base_url('assets/dist/css/adminlte.min.css'); ?>">
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -300,7 +300,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="<?= base_url('assets'); ?>/js/scripts.js"></script>
+        <script src="<?= base_url('assets/js/scripts.js'); ?>"></script>
         <script>
       
                     console.log(gs.value);
@@ -313,7 +313,7 @@
             container.innerHTML = xhr.responseText;
           }
         }
-        xhr.open('GET', '<?= base_url('assets'); ?>/gs/googlescholarhome.php?user='+gs.value, true);
+        xhr.open('GET', '<?= base_url('assets/gs/googlescholarhome.php?user='); ?>'+gs.value, true);
           xhr.send();
 
          

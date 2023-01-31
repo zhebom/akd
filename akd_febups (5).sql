@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2023 at 08:40 AM
+-- Generation Time: Jan 09, 2023 at 08:40 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -292,7 +292,7 @@ ALTER TABLE `laporan_dosen`
 -- AUTO_INCREMENT for table `luaran_dosen`
 --
 ALTER TABLE `luaran_dosen`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rekognisi_dosen`
